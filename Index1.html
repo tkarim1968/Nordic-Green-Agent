@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordic Green Agent | شريكك الاستراتيجي لدخول السوق</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background-color: #f9f9f9; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        header { background: #2d5a27; color: white; padding: 60px 20px; text-align: center; border-radius: 10px; margin-bottom: 20px; }
+        .logo { font-size: 4rem; margin-bottom: 10px; }
+        nav { background: #fff; padding: 15px; text-align: center; border-bottom: 2px solid #ddd; margin-bottom: 30px; position: sticky; top: 0; z-index: 100; }
+        nav a { margin: 0 15px; cursor: pointer; color: #2d5a27; font-weight: bold; text-decoration: none; }
+        section { margin-bottom: 30px; padding: 30px; border: 1px solid #ddd; border-radius: 10px; background-color: #fff; }
+        .promise-section { background-color: #e8f5e9; border: 1px solid #c8e6c9; }
+        h2 { color: #2d5a27; margin-top: 0; }
+        .contact-info { line-height: 2; }
+        footer { text-align: center; margin-top: 50px; padding: 20px; color: #777; font-size: 0.9em; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🌿</div>
+        <h1>Nordic Green Agent</h1>
+        <p>شريكك الاستراتيجي لدخول السوق الألماني.</p>
+    </header>
+
+    <nav>
+        <a onclick="setLang('en')">English</a> | 
+        <a onclick="setLang('de')">Deutsch</a> | 
+        <a onclick="setLang('fr')">Français</a> | 
+        <a onclick="setLang('ar')">العربية</a>
+    </nav>
+
+    <div class="container">
+        <section class="promise-section">
+            <h2 id="promise-title"></h2>
+            <p id="promise-text" style="font-weight: bold;"></p>
+            <div id="promise-details"></div>
+        </section>
+
+        <section>
+            <h2 id="about-title"></h2>
+            <p id="about-text"></p>
+        </section>
+
+        <section>
+            <h2 id="services-title"></h2>
+            <ul id="services-list"></ul>
+        </section>
+
+        <section>
+            <h2 id="contact-title"></h2>
+            <div id="contact-details" class="contact-info"></div>
+        </section>
+
+        <section>
+            <h2 id="impressum-title"></h2>
+            <div id="impressum-details" class="contact-info"></div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Nordic Green Agent. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        const data = {
+            de: {
+                promise: "Unser Versprechen", promiseText: "Höchste Qualität und ökologische Verantwortung für den bewussten deutschen Konsumenten.",
+                promiseDetails: "<p><strong>1. Kompromisslose Qualität:</strong> Wir wählen unsere Partner in Skandinavien sorgfältig aus.</p><p><strong>2. Nachhaltigkeit als Fundament:</strong> Wir fördern Marken, die ressourcenschonend produzieren.</p><p><strong>3. Transparenz & Vertrauen:</strong> Klare Kommunikation und faire Zusammenarbeit mit dem Handel.</p>",
+                about: "Über uns", aboutText: "Nordic Green Agent ist Ihr spezialisierter Partner für die erfolgreiche Markteinführung skandinavischer Premiummarken in Deutschland. Mit Sitz in Mainz verstehen wir die Dynamik des deutschen Einzelhandels.",
+                services: "Unsere Leistungen", servicesList: ["Markteintrittsstrategie", "Vertriebsvertretung", "Marktanalyse", "Logistik-Support"],
+                contact: "Kontakt", contactDetails: "<p><strong>Karim Taleb</strong> - Geschäftsführer<br>Mainz, Deutschland<br>Tel: +49 176 77545933<br>E-Mail: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a></p>",
+                impressum: "Impressum", impressumDetails: "<p><strong>Angaben gemäß § 5 TMG:</strong><br>Karim Taleb, Nordic Green Agent<br>Pankratiusstrasse 24a, 55116 Mainz<br>Tel: +49 6131 495 6664<br>Mobil: +49 176 77545933<br>E-Mail: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a><br>USt-IdNr.: DE443783347</p>"
+            },
+            en: {
+                promise: "Our Promise", promiseText: "Highest quality and ecological responsibility for the conscious German consumer.",
+                promiseDetails: "<p><strong>1. Uncompromising Quality:</strong> Carefully selected partners.</p><p><strong>2. Sustainability:</strong> Resource-efficient production focus.</p><p><strong>3. Transparency:</strong> Fair collaboration with retail partners.</p>",
+                about: "About Us", aboutText: "Nordic Green Agent is your specialized partner for the successful market launch of premium Scandinavian brands in Germany.",
+                services: "Our Services", servicesList: ["Market Entry Strategy", "Sales Representation", "Market Analysis", "Logistics Support"],
+                contact: "Contact", contactDetails: "<p><strong>Karim Taleb</strong> - Managing Director<br>Mainz, Germany<br>Tel: +49 176 77545933<br>Email: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a></p>",
+                impressum: "Legal Notice", impressumDetails: "<p><strong>Information according to § 5 TMG:</strong><br>Karim Taleb, Nordic Green Agent<br>Pankratiusstrasse 24a, 55116 Mainz<br>Tel: +49 6131 495 6664<br>Mobile: +49 176 77545933<br>Email: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a><br>VAT ID: DE443783347</p>"
+            },
+            fr: {
+                promise: "Notre Promesse", promiseText: "Qualité supérieure et responsabilité écologique pour le consommateur.",
+                promiseDetails: "<p><strong>1. Qualité sans compromis:</strong> Sélection rigoureuse.</p><p><strong>2. Durabilité:</strong> Promotion de marques éco-responsables.</p><p><strong>3. Transparence:</strong> Partenariats équitables.</p>",
+                about: "À propos", aboutText: "Nordic Green Agent est votre partenaire spécialisé pour le lancement réussi de marques scandinaves en Allemagne.",
+                services: "Nos Services", servicesList: ["Stratégie d'entrée", "Représentation commerciale", "Analyse de marché", "Support Logistique"],
+                contact: "Contact", contactDetails: "<p><strong>Karim Taleb</strong> - Directeur général<br>Mainz, Allemagne<br>Tel: +49 176 77545933<br>E-mail: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a></p>",
+                impressum: "Mentions Légales", impressumDetails: "<p><strong>Informations selon § 5 TMG:</strong><br>Karim Taleb, Nordic Green Agent<br>Pankratiusstrasse 24a, 55116 Mainz<br>Tel: +49 6131 495 6664<br>Mobile: +49 176 77545933<br>E-mail: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a><br>N° de TVA: DE443783347</p>"
+            },
+            ar: {
+                promise: "وعدنا", promiseText: "أعلى مستويات الجودة والمسؤولية البيئية للمستهلك الواعي.",
+                promiseDetails: "<p><strong>1. جودة لا تضاهى:</strong> اختيار دقيق لشركائنا.</p><p><strong>2. الاستدامة:</strong> دعم العلامات التجارية المستدامة.</p><p><strong>3. الشفافية:</strong> تعاون عادل مع الشركاء.</p>",
+                about: "من نحن", aboutText: "تعد شركة Nordic Green Agent شريكك المتخصص للإطلاق الناجح للعلامات التجارية الإسكندنافية في ألمانيا. من مقرنا في ماينتس، نفهم ديناميكيات تجارة التجزئة الألمانية.",
+                services: "خدماتنا", servicesList: ["استراتيجية دخول السوق", "التمثيل التجاري", "تحليل السوق", "دعم الخدمات اللوجستية"],
+                contact: "اتصل بنا", contactDetails: "<p><strong>Karim Taleb</strong> - المدير العام<br>ماينتس، ألمانيا<br>Tel: +49 176 77545933<br>Email: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a></p>",
+                impressum: "المعلومات القانونية", impressumDetails: "<p><strong>المعلومات وفقاً للقانون الألماني (§ 5 TMG):</strong><br>Karim Taleb, Nordic Green Agent<br>Pankratiusstrasse 24a, 55116 Mainz<br>Tel: +49 6131 495 6664<br>Mobile: +49 176 77545933<br>Email: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a><br>الرقم الضريبي: DE443783347</p>"
+            }
+        };
+
+        function setLang(lang) {
+            document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            document.getElementById('promise-title').innerText = data[lang].promise;
+            document.getElementById('promise-text').innerText = data[lang].promiseText;
+            document.getElementById('promise-details').innerHTML = data[lang].promiseDetails;
+            document.getElementById('about-title').innerText = data[lang].about;
+            document.getElementById('about-text').innerText = data[lang].aboutText;
+            document.getElementById('services-title').innerText = data[lang].services;
+            document.getElementById('contact-title').innerText = data[lang].contact;
+            document.getElementById('contact-details').innerHTML = data[lang].contactDetails;
+            document.getElementById('impressum-title').innerText = data[lang].impressum;
+            document.getElementById('impressum-details').innerHTML = data[lang].impressumDetails;
+            
+            const list = document.getElementById('services-list');
+            list.innerHTML = '';
+            data[lang].servicesList.forEach(item => { const li = document.createElement('li'); li.innerText = item; list.appendChild(li); });
+        }
+        setLang('de');
+    </script>
+</body>
+</html>
