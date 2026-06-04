@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordic Green Agent | Ihr Partner für den Markteintritt</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f7f4;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: #2d5a27;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 5rem;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.6rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        nav {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        nav a {
+            margin: 0 20px;
+            cursor: pointer;
+            color: #2d5a27;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 40px;
+            border-radius: 12px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .promise-section {
+            background-color: #e8f5e9;
+            border-left: 5px solid #2d5a27;
+        }
+
+        body[dir="rtl"] .promise-section {
+            border-left: none;
+            border-right: 5px solid #2d5a27;
+        }
+
+        h2 {
+            color: #2d5a27;
+            margin-top: 0;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        body[dir="rtl"] ul {
+            padding-left: 0;
+            padding-right: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #2d5a27;
+        }
+
+        .contact-info {
+            line-height: 2;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">🌿</div>
+        <h1 id="header-title">Nordic Green Agent</h1>
+        <p id="header-subtitle"></p>
+    </header>
+
+    <nav>
+        <a onclick="setLang('en')">English</a> |
+        <a onclick="setLang('de')">Deutsch</a> |
+        <a onclick="setLang('fr')">Français</a> |
+        <a onclick="setLang('ar')">العربية</a>
+    </nav>
+
+    <div class="container">
+        <section class="promise-section">
+            <h2 id="promise-title"></h2>
+            <p id="promise-text" style="font-weight: bold;"></p>
+            <div id="promise-details"></div>
+        </section>
+
+        <section>
+            <h2 id="about-title"></h2>
+            <p id="about-text"></p>
+        </section>
+
+        <section>
+            <h2 id="services-title"></h2>
+            <ul id="services-list"></ul>
+        </section>
+
+        <section>
+            <h2 id="contact-title"></h2>
+            <div id="contact-details" class="contact-info"></div>
+        </section>
+
+        <section>
+            <h2 id="impressum-title"></h2>
+            <div id="impressum-details"></div>
+        </section>
+    </div>
+
+    <footer>
+        <p id="footer-text"></p>
+    </footer>
+
+    <script>
+        const data = {
+            de: {
+                pageTitle: "Nordic Green Agent | Ihr Partner für den Markteintritt",
+                headerSubtitle: "Ihr strategischer Partner für den Markteintritt skandinavischer Premiummarken in Deutschland.",
+                footer: "© 2026 Nordic Green Agent. Alle Rechte vorbehalten.",
+                promise: "Unser Versprechen",
+                promiseText: "Wir stehen für Exzellenz, Nachhaltigkeit und langfristigen Erfolg.",
+                promiseDetails: "<p><strong>1. Qualität:</strong> Premiummarken aus Skandinavien.<br><strong>2. Nachhaltigkeit:</strong> Ökologische Verantwortung.<br><strong>3. Transparenz:</strong> Faire Zusammenarbeit.</p>",
+                about: "Über uns",
+                aboutText: "Nordic Green Agent ist Ihr Partner für den Markteintritt skandinavischer Marken in Deutschland. Sitz in Mainz.",
+                services: "Unsere Expertise",
+                servicesList: ["Markteintrittsplanung", "Vertriebsvertretung", "Beziehungsaufbau", "Marktanalyse", "Logistikberatung"],
+                contact: "Kontakt",
+                contactDetails: `<p><strong>Karim Taleb</strong><br>Geschäftsführer<br>Mainz, Deutschland<br>Mobil: +49 176 77545933<br>E-Mail: <a href="mailto:nordic.green.germany@web.de">nordic.green.germany@web.de</a><br><br><a href="mailto:nordic.green.germany@web.de?subject=Anfrage%20Maison%20Belle%20Muster" style="background-color: #2d5a27; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Kontakt für Musterbestellung</a></p>`,
+                impressum: "Impressum",
+                impressumDetails: "<p>Karim Taleb, Nordic Green Agent, Pankratiusstrasse 24a, 55116 Mainz. USt-IdNr.: DE443783347</p>"
+            },
+            en: {
+                pageTitle: "Nordic Green Agent | Your Partner for Market Entry",
+                headerSubtitle: "Your strategic partner for the market entry of premium Scandinavian brands in Germany.",
+                footer: "© 2026 Nordic Green Agent. All rights reserved.",
+                promise: "Our Promise",
+                promiseText: "We stand for excellence, sustainability, and long-term success.",
+                promiseDetails: "<p><strong>1. Quality:</strong> Premium Scandinavian brands.<br><strong>2. Sustainability:</strong> Ecological responsibility.<br><strong>3. Transparency:</strong> Fair collaboration.</p>",
+                about: "About Us",
+                aboutText: "Nordic Green Agent is your partner for market entry in Germany. Based in Mainz.",
+                services: "Our Expertise",
+                servicesList: ["Market entry planning", "Sales representation", "Relationship building", "Market analysis", "Logistics consulting"],
+                contact: "Contact",
+                contactDetails: `<p><strong>Karim Taleb</strong><br>Managing Director<br>Mainz, Germany<br>Mobile: +49 176 77545933<br>Email: <a href="mailto:nordic.green.germany@web.de">nordic.green.germany@web.de</a><br><br><a href="mailto:nordic.green.germany@web.de?subject=Inquiry%20Maison%20Belle%20Samples" style="background-color: #2d5a27; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Contact for Sample Request</a></p>`,
+                impressum: "Legal Notice",
+                impressumDetails: "<p>Karim Taleb, Nordic Green Agent, Pankratiusstrasse 24a, 55116 Mainz. VAT ID: DE443783347</p>"
+            },
+            fr: {
+                pageTitle: "Nordic Green Agent | Votre partenaire pour l'entrée sur le marché",
+                headerSubtitle: "Votre partenaire stratégique pour l'entrée des marques scandinaves en Allemagne.",
+                footer: "© 2026 Nordic Green Agent. Tous droits réservés.",
+                promise: "Notre Promesse",
+                promiseText: "Nous incarnons l'excellence, la durabilité et le succès.",
+                promiseDetails: "<p><strong>1. Qualité :</strong> Marques scandinaves haut de gamme.<br><strong>2. Durabilité :</strong> Responsabilité écologique.<br><strong>3. Transparence :</strong> Collaboration équitable.</p>",
+                about: "À propos",
+                aboutText: "Nordic Green Agent est votre partenaire pour le lancement réussi de marques scandinaves en Allemagne.",
+                services: "Notre Expertise",
+                servicesList: ["Planification de marché", "Représentation commerciale", "Développement relationnel", "Analyse de marché", "Conseil logistique"],
+                contact: "Contact",
+                contactDetails: `<p><strong>Karim Taleb</strong><br>Directeur général<br>Mayence, Allemagne<br>Mobile : +49 176 77545933<br>E-mail : <a href="mailto:nordic.green.germany@web.de">nordic.green.germany@web.de</a><br><br><a href="mailto:nordic.green.germany@web.de?subject=Demande%20d%27échantillons" style="background-color: #2d5a27; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Demande d'échantillons</a></p>`,
+                impressum: "Mentions légales",
+                impressumDetails: "<p>Karim Taleb, Nordic Green Agent, Pankratiusstrasse 24a, 55116 Mainz. TVA : DE443783347</p>"
+            },
+            ar: {
+                pageTitle: "Nordic Green Agent | شريكك الاستراتيجي في ألمانيا",
+                headerSubtitle: "شريكك الاستراتيجي لدخول العلامات التجارية الاسكندنافية إلى السوق الألماني.",
+                footer: "© 2026 Nordic Green Agent. جميع الحقوق محفوظة.",
+                promise: "وعدنا",
+                promiseText: "نلتزم بالتميز والاستدامة والنجاح طويل الأمد.",
+                promiseDetails: "<p><strong>1. الجودة:</strong> علامات تجارية اسكندنافية متميزة.<br><strong>2. الاستدامة:</strong> مسؤولية بيئية.<br><strong>3. الشفافية:</strong> تعاون عادل.</p>",
+                about: "من نحن",
+                aboutText: "Nordic Green Agent هو شريكك الاستراتيجي لإطلاق العلامات التجارية الاسكندنافية بنجاح في ألمانيا.",
+                services: "خبراتنا",
+                servicesList: ["إعداد استراتيجية السوق", "التمثيل التجاري", "بناء العلاقات", "تحليل السوق", "استشارات لوجستية"],
+                contact: "اتصل بنا",
+                contactDetails: `<p><strong>Karim Taleb</strong><br>المدير العام<br>ماينتس، ألمانيا<br>الجوال: +49 176 77545933<br>البريد الإلكتروني: <a href="mailto:nordic.green.germany@web.de">nordic.green.germany@web.de</a><br><br><a href="mailto:nordic.green.germany@web.de?subject=طلب%20عينات" style="background-color: #2d5a27; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">طلب عينات تجريبية</a></p>`,
+                impressum: "المعلومات القانونية",
+                impressumDetails: "<p>Karim Taleb, Nordic Green Agent, Pankratiusstrasse 24a, 55116 Mainz. الرقم الضريبي: DE443783347</p>"
+            }
+        };
+
+        function setLang(lang) {
+            const l = data[lang] ? lang : 'de';
+            document.documentElement.lang = l;
+            document.body.dir = (l === 'ar') ? 'rtl' : 'ltr';
+            document.title = data[l].pageTitle;
+            document.getElementById('header-subtitle').innerText = data[l].headerSubtitle;
+            document.getElementById('promise-title').innerText = data[l].promise;
+            document.getElementById('promise-text').innerText = data[l].promiseText;
+            document.getElementById('promise-details').innerHTML = data[l].promiseDetails;
+            document.getElementById('about-title').innerText = data[l].about;
+            document.getElementById('about-text').innerText = data[l].aboutText;
+            document.getElementById('services-title').innerText = data[l].services;
+            const list = document.getElementById('services-list');
+            list.innerHTML = '';
+            data[l].servicesList.forEach(item => { const li = document.createElement('li'); li.innerText = item; list.appendChild(li); });
+            document.getElementById('contact-title').innerText = data[l].contact;
+            document.getElementById('contact-details').innerHTML = data[l].contactDetails;
+            document.getElementById('impressum-title').innerText = data[l].impressum;
+            document.getElementById('impressum-details').innerHTML = data[l].impressumDetails;
+            document.getElementById('footer-text').innerText = data[l].footer;
+        }
+        setLang('de');
+    </script>
+</body>
+</html>
