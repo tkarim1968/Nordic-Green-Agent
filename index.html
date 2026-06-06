@@ -103,7 +103,7 @@
             font-size: 1.8rem;
         }
         
-        /* Profile Section Styling */
+        /* Profilbild-Bereich */
         .profile-container {
             display: flex;
             gap: 2rem;
@@ -113,19 +113,24 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background-color: #cbd5e1;
+            background: none;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 3rem;
             flex-shrink: 0;
             border: 3px solid var(--primary-light);
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         @media (max-width: 650px) {
             .profile-container { flex-direction: column; text-align: center; }
         }
 
-        /* Grid Layouts */
+        /* Grid Layouts für Leistungen */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -148,7 +153,7 @@
         }
         .card li { margin-bottom: 0.5rem; }
 
-        /* Trust Badges & Facts */
+        /* Fakten & Vertrauen */
         .trust-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -197,8 +202,6 @@
             .product-gallery { grid-template-columns: 1fr; }
         }
 
-        .rtl-mode { direction: rtl; text-align: right; }
-        
         footer {
             background-color: #1e332a;
             color: var(--white);
@@ -230,11 +233,13 @@
 </head>
 <body>
 
+    <!-- Sprachnavigation -->
     <nav>
         <button class="lang-btn active" onclick="switchLang('de')">🇩🇪 Deutsch</button>
         <button class="lang-btn" onclick="switchLang('en')">🇬🇧 English</button>
     </nav>
 
+    <!-- Header mit starkem Nutzenversprechen -->
     <header>
         <span class="logo">🌿</span>
         <h1>Nordic Green Agent</h1>
@@ -248,20 +253,23 @@
 
     <div class="container">
         
-        <!-- Über mich / Vertrauens-Sektion -->
+        <!-- Über mich Sektion mit Ihrem Porträtfoto -->
         <section style="background-color: var(--primary-light);">
             <h2 class="lang-content de">Über uns & Vertrauen</h2>
             <h2 class="lang-content en">About Us & Trust</h2>
             
             <div class="profile-container">
-                <!-- Platzhalter für Ihr Foto (Einfach später ein Bild namens 'karim.jpg' hochladen) -->
-                <div class="profile-image">👤</div>
+                <!-- Ihr hochgeladenes Foto -->
+                <div class="profile-image">
+                    <img src="FB_IMG_1638803596232.jpg" alt="Karim Taleb">
+                </div>
                 <div>
                     <p class="lang-content de">Mein Name ist <strong>Karim Taleb</strong>. Ich bin der Gründer von Nordic Green Agent. Als Ihr strategischer Partner begleite ich nachhaltige skandinavische Marken exklusiv beim Eintritt in den deutschen Markt. Durch fundierte Marktkenntnisse und ein wachsendes Netzwerk im deutschen Bio- und Facheinzelhandel ebne ich den Weg für langfristige Handelspartnerschaften.</p>
                     <p class="lang-content en">My name is <strong>Karim Taleb</strong>, founder of Nordic Green Agent. As your strategic partner, I guide sustainable Scandinavian brands through their exclusive entry into the German market. With profound market knowledge and an expanding network in German organic and specialized retail, I clear the path for long-term commercial partnerships.</p>
                 </div>
             </div>
 
+            <!-- Vertrauens-Fakten -->
             <div class="trust-grid">
                 <div class="trust-item lang-content de">✓ Sitz in Mainz, Deutschland</div>
                 <div class="trust-item lang-content de">✓ Fokus auf nordische Nachhaltigkeit</div>
@@ -334,25 +342,26 @@
             <p class="lang-content de">Wir vertreten Premium-Marken aus den Bereichen: <strong>Bio-Lebensmittel, Naturkosmetik, ökologische Reiniger und nachhaltige Haushaltswaren.</strong></p>
             <p class="lang-content en">We represent premium brands in the fields of: <strong>organic food, natural cosmetics, ecological cleaners, and sustainable household utilities.</strong></p>
 
-            <!-- Bild-Visualisierung basierend auf hochgeladenen Dateien -->
+            <!-- Stilvolle Bildergalerie -->
             <div class="product-gallery">
                 <div class="gallery-left">
                     <div class="product-img-wrapper">
-                        <img src="Flüssigseife1.png" alt="Savon Liquide de Marseille Lavande">
+                        <img src="Flüssigseife1.png" alt="Maison Belle Seife">
                     </div>
                 </div>
                 <div class="gallery-right">
                     <div class="product-img-wrapper">
-                        <img src="Bürste.png" alt="Washing Brush and Bamboo Products">
+                        <img src="Bürste.png" alt="Nachhaltige Bürste">
                     </div>
                     <div class="product-img-wrapper">
-                        <img src="Flüssigseifen.png" alt="Savon Liquide Selection">
+                        <img src="Flüssigseifen.png" alt="Maison Belle Sortiment">
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- Professioneller Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -366,6 +375,7 @@
         </div>
     </footer>
 
+    <!-- Sprachumschaltungs-Logik -->
     <script>
         function switchLang(lang) {
             document.querySelectorAll('.lang-content').forEach(el => el.style.display = 'none');
