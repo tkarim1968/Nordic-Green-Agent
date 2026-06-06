@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nordic Green Agent | Your Strategic Market Entry Partner</title>
+    <title>Nordic Green Agent | Ihr Partner für den Markteintritt in Deutschland</title>
     <style>
+        :root {
+            --primary-color: #2e4a3f;
+            --primary-light: #e2ece9;
+            --text-color: #2c3e50;
+            --bg-color: #f9fbf9;
+            --white: #ffffff;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
-            background-color: #f9fbf9;
+            color: var(--text-color);
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
         }
-        /* Navigation komplett zentriert und im helleren Grün */
         nav {
-            background-color: #2e4a3f;
+            background-color: var(--primary-color);
             padding: 1.5rem 2rem 0 2rem;
             text-align: center;
             display: flex;
@@ -32,22 +38,17 @@
             border-radius: 4px;
             font-size: 0.9rem;
             transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
         }
         .lang-btn:hover, .lang-btn.active {
             background-color: white;
-            color: #2e4a3f;
+            color: var(--primary-color);
             font-weight: bold;
-            border-color: white;
         }
-        /* Header nahtlos im gleichen helleren Grün und zentriert */
         header {
-            background-color: #2e4a3f;
+            background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 3.5rem 2rem 4.5rem 2rem;
+            padding: 4rem 2rem 5rem 2rem;
         }
         .logo {
             font-size: 3rem;
@@ -56,113 +57,155 @@
         }
         header h1 {
             margin: 0;
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             letter-spacing: 1px;
         }
         header p {
             font-size: 1.3rem;
-            opacity: 0.9;
-            margin-top: 1rem;
+            max-width: 700px;
+            margin: 1.5rem auto 2rem auto;
+            opacity: 0.95;
             font-weight: 300;
         }
+        .cta-btn {
+            display: inline-block;
+            background-color: #a3e2c9;
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            background-color: #bee9d8;
+        }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 3rem 2rem;
         }
         section {
-            margin-bottom: 3rem;
-            background: white;
-            padding: 2rem;
+            margin-bottom: 3.5rem;
+            background: var(--white);
+            padding: 2.5rem;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        /* Hellgrüner Hintergrund für den Über uns Bereich */
-        section.about-section {
-            background-color: #e2ece9; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
         h2 {
-            color: #2e4a3f;
-            border-bottom: 2px solid #b8d1c8;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-light);
             padding-bottom: 0.5rem;
             margin-top: 0;
+            font-size: 1.8rem;
         }
-        section:not(.about-section) h2 {
-            border-bottom: 2px solid #e2ece9;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 1rem;
-            position: relative;
-            padding-left: 1.8rem;
-        }
-        body:not(.rtl-mode) li::before {
-            content: "🌿";
-            position: absolute;
-            left: 0;
-        }
-        /* Styling für die neue Bildergalerie */
-        .product-gallery {
+        
+        /* Profile Section Styling */
+        .profile-container {
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            align-items: center;
         }
-        .gallery-row-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-        .product-img-wrapper {
-            background: #ffffff;
-            border: 1px solid #e2ece9;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
             display: flex;
             justify-content: center;
             align-items: center;
+            font-size: 3rem;
+            flex-shrink: 0;
+            border: 3px solid var(--primary-light);
+        }
+        @media (max-width: 650px) {
+            .profile-container { flex-direction: column; text-align: center; }
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: #fdfdfd;
+            border: 1px solid #edf2f0;
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .card ul {
+            padding-left: 1.2rem;
+            list-style-type: square;
+        }
+        .card li { margin-bottom: 0.5rem; }
+
+        /* Trust Badges & Facts */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .trust-item {
+            background: var(--primary-light);
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        /* Bildergalerie */
+        .product-gallery {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .gallery-left {
+            display: flex;
+        }
+        .gallery-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .product-img-wrapper {
+            background: var(--white);
+            border: 1px solid var(--primary-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            width: 100%;
         }
         .product-img-wrapper img {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
             object-fit: cover;
         }
-        @media (max-width: 600px) {
-            .gallery-row-2 {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 750px) {
+            .product-gallery { grid-template-columns: 1fr; }
         }
-        .rtl-mode {
-            direction: rtl;
-            text-align: right;
-        }
-        .rtl-mode nav {
-            justify-content: center;
-        }
-        .rtl-mode li {
-            padding-left: 0;
-            padding-right: 1.8rem;
-        }
-        .rtl-mode li::before {
-            content: "🌿";
-            position: absolute;
-            right: 0;
-        }
-        strong {
-            color: #2e4a3f;
-        }
+
+        .rtl-mode { direction: rtl; text-align: right; }
+        
         footer {
             background-color: #1e332a;
-            color: #ffffff;
+            color: var(--white);
             padding: 3rem 2rem;
             margin-top: 5rem;
             font-size: 0.95rem;
-            border-top: 4px solid #2e4a3f;
+            border-top: 4px solid var(--primary-color);
             text-align: center;
         }
         .footer-container {
@@ -173,95 +216,132 @@
             gap: 2.5rem;
         }
         .footer-section h3 {
-            color: #ffffff;
+            color: var(--white);
             font-size: 1.3rem;
             margin-top: 0;
             margin-bottom: 0.8rem;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-        .footer-section p {
-            margin: 0.4rem 0;
-            color: rgba(255, 255, 255, 0.9);
         }
         .footer-section a {
             color: #a3e2c9;
             text-decoration: none;
             font-weight: bold;
         }
-        .footer-section a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Zentrierte Navigation -->
     <nav>
         <button class="lang-btn active" onclick="switchLang('de')">🇩🇪 Deutsch</button>
         <button class="lang-btn" onclick="switchLang('en')">🇬🇧 English</button>
-        <button class="lang-btn" onclick="switchLang('fr')">🇫🇷 Français</button>
-        <button class="lang-btn" onclick="switchLang('ar')">🇦🇪 العربية</button>
     </nav>
 
-    <!-- Zentrierter Header mit korrigiertem arabischen Untertitel -->
     <header>
         <span class="logo">🌿</span>
         <h1>Nordic Green Agent</h1>
-        <p class="lang-content de">Ihr strategischer Partner für den Markteintritt nachhaltiger nordischer Marken</p>
-        <p class="lang-content en">Your Strategic Market Entry Partner for Sustainable Nordic Brands</p>
-        <p class="lang-content fr">Votre partenaire stratégique pour l'entrée sur le marché des marques nordiques durables</p>
-        <p class="lang-content ar">شريكك الاستراتيجي لدخول السوق للعلامات التجارية الاسكندنافية المستدامة</p>
+        
+        <p class="lang-content de">Wir unterstützen nordische Bio-, Natur- und Nachhaltigkeitsmarken beim erfolgreichen Aufbau von Vertriebspartnerschaften in Deutschland – von der Marktanalyse bis zur Platzierung im Fachhandel.</p>
+        <p class="lang-content en">We support Nordic organic, natural, and sustainable brands in successfully establishing distribution partnerships in Germany – from market analysis to retail placement.</p>
+        
+        <a href="mailto:nordic.green.germany@web.de" class="cta-btn lang-content de">Kostenloses Erstgespräch buchen</a>
+        <a href="mailto:nordic.green.germany@web.de" class="cta-btn lang-content en">Book a Free Consultation</a>
     </header>
 
     <div class="container">
         
-        <!-- Über uns (hellgrün) mit rein arabischem Text -->
-        <section class="about-section">
-            <h2 class="lang-content de">Über uns</h2>
-            <h2 class="lang-content en">About Us</h2>
-            <h2 class="lang-content fr">À propos de nous</h2>
-            <h2 class="lang-content ar">من نحن</h2>
+        <!-- Über mich / Vertrauens-Sektion -->
+        <section style="background-color: var(--primary-light);">
+            <h2 class="lang-content de">Über uns & Vertrauen</h2>
+            <h2 class="lang-content en">About Us & Trust</h2>
             
-            <p class="lang-content de">Nordic Green Agent schlägt die Brücke zwischen innovativen, umweltfreundlichen Produzenten aus Skandinavien und dem deutschen Bio- sowie Facheinzelhandel. Als spezialisierte Handelsagentur mit Sitz in Mainz helfen wir Premium-Öko-Marken dabei, eine starke und dauerhafte Präsenz auf dem deutschen Markt aufzubauen.</p>
-            <p class="lang-content en">At Nordic Green Agent, we bridge the gap between innovative Nordic producers and the German organic and specialized retail market. Based in Mainz, our commercial agency helps premium, eco-friendly brands establish a strong, lasting presence in Germany by handling local representation and market strategy.</p>
-            <p class="lang-content fr">Chez Nordic Green Agent, nous jetons un pont entre les producteurs nordiques innovants et respectueux de l'environnement et le marché bio allemand. Basée à Mayence, notre agence commerciale aide les marques éco-responsables à établir une présence solide.</p>
-            <p class="lang-content ar">في Nordic Green Agent، نقوم ببناء الجسر بين المنتجين المبتكرين والصديقين للبيئة من الدول الاسكندنافية وسوق التجزئة العضوي والمتخصص في ألمانيا. كوكالة تجارية متخصصة مقرها ماينتس، نساعد العلامات التجارية البيئية المتميزة على التواجد القوي والدائم في السوق الألماني.</p>
+            <div class="profile-container">
+                <!-- Platzhalter für Ihr Foto (Einfach später ein Bild namens 'karim.jpg' hochladen) -->
+                <div class="profile-image">👤</div>
+                <div>
+                    <p class="lang-content de">Mein Name ist <strong>Karim Taleb</strong>. Ich bin der Gründer von Nordic Green Agent. Als Ihr strategischer Partner begleite ich nachhaltige skandinavische Marken exklusiv beim Eintritt in den deutschen Markt. Durch fundierte Marktkenntnisse und ein wachsendes Netzwerk im deutschen Bio- und Facheinzelhandel ebne ich den Weg für langfristige Handelspartnerschaften.</p>
+                    <p class="lang-content en">My name is <strong>Karim Taleb</strong>, founder of Nordic Green Agent. As your strategic partner, I guide sustainable Scandinavian brands through their exclusive entry into the German market. With profound market knowledge and an expanding network in German organic and specialized retail, I clear the path for long-term commercial partnerships.</p>
+                </div>
+            </div>
+
+            <div class="trust-grid">
+                <div class="trust-item lang-content de">✓ Sitz in Mainz, Deutschland</div>
+                <div class="trust-item lang-content de">✓ Fokus auf nordische Nachhaltigkeit</div>
+                <div class="trust-item lang-content de">✓ End-to-End Vertriebsunterstützung</div>
+                
+                <div class="trust-item lang-content en">✓ Based in Mainz, Germany</div>
+                <div class="trust-item lang-content en">✓ Focused on Nordic Sustainability</div>
+                <div class="trust-item lang-content en">✓ End-to-End Sales Support</div>
+            </div>
         </section>
 
-        <!-- Sortiment / Focus mit den neuen Bildern -->
+        <!-- Strukturierte Leistungen -->
         <section>
-            <h2 class="lang-content de">Unser Fokus & Sortiment</h2>
-            <h2 class="lang-content en">Our Focus & Portfolio</h2>
-            <h2 class="lang-content fr">Notre Objectif & Gamme</h2>
-            <h2 class="lang-content ar">تركيزنا ومجموعتنا</h2>
+            <h2 class="lang-content de">Strukturierte Leistungen</h2>
+            <h2 class="lang-content en">Our Core Services</h2>
             
-            <ul>
-                <li class="lang-content de"><strong>Ökologische Reiniger:</strong> Nachhaltige Haushaltsprodukte für ein grünes Zuhause.</li>
-                <li class="lang-content de"><strong>Nachhaltige Körperpflege:</strong> Natürliche und umweltfreundliche Pflegeprodukte.</li>
-                <li class="lang-content de"><strong>Plastikfreie Haushaltshelfer:</strong> Innovative Produkte aus Bambus und Luffa.</li>
-                
-                <li class="lang-content en"><strong>Ecological Cleaners:</strong> Sustainable household products for a green home.</li>
-                <li class="lang-content en"><strong>Sustainable Personal Care:</strong> Natural and eco-friendly care products.</li>
-                <li class="lang-content en"><strong>Plastic-Free Utilities:</strong> Innovative products made from bamboo and luffa.</li>
-                
-                <li class="lang-content fr"><strong>Nettoyants écologiques:</strong> Produits ménagers durables pour une maison verte.</li>
-                <li class="lang-content fr"><strong>Soins corporels durables:</strong> Produits de soin naturels et respectueux de l'environnement.</li>
-                <li class="lang-content fr"><strong>Ustensiles sans plastique:</strong> Produits innovants en bambou et luffa.</li>
-                
-                <li class="lang-content ar"><strong>منظفات بيئية:</strong> منتجات منزلية مستدامة لمنزل أخضر ونظيف.</li>
-                <li class="lang-content ar"><strong>عناية شخصية مستدامة:</strong> منتجات عناية طبيعية وصديقة للبيئة.</li>
-                <li class="lang-content ar"><strong>أدوات منزلية خالية من البلاستيك:</strong> منتجات مبتكرة مصنوعة من الخيزران (البامبو) والليف الطبيعي.</li>
-            </ul>
-
-            <!-- Hier wird die Bildergalerie eingefügt -->
-            <div class="product-gallery">
-                <!-- Großes Stimmungsbild oben -->
-                <div class="product-img-wrapper">
-                    <img src="Flüssigseife1.png" alt="Savon Liquide de Marseille Lanvande">
+            <div class="grid-3">
+                <div class="card">
+                    <h3 class="lang-content de">1. Markteintritt</h3>
+                    <h3 class="lang-content en">1. Market Entry</h3>
+                    <ul class="lang-content de">
+                        <li>Markt- & Wettbewerbsanalyse</li>
+                        <li>Positionierungsberatung</li>
+                        <li>Zielgruppenidentifikation</li>
+                    </ul>
+                    <ul class="lang-content en">
+                        <li>Market & competitor analysis</li>
+                        <li>Positioning & strategy consulting</li>
+                        <li>Target group identification</li>
+                    </ul>
                 </div>
-                <!-- Zwei Produktbilder nebeneinander darunter -->
-                <div class="gallery-row-2">
+                
+                <div class="card">
+                    <h3 class="lang-content de">2. Vertrieb & Handel</h3>
+                    <h3 class="lang-content en">2. Sales & Retail</h3>
+                    <ul class="lang-content de">
+                        <li>Bio- & Facheinzelhandel</li>
+                        <li>Ansprache von Distributoren</li>
+                        <li>Großhandelsplatzierungen</li>
+                    </ul>
+                    <ul class="lang-content en">
+                        <li>Organic & specialized retail</li>
+                        <li>Distributor outreach</li>
+                        <li>Wholesale placements</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="lang-content de">3. Business Development</h3>
+                    <h3 class="lang-content en">3. Business Development</h3>
+                    <ul class="lang-content de">
+                        <li>Lokale Repräsentanz</li>
+                        <li>Partnersuche & Erstkontakt</li>
+                        <li>Vertragsverhandlungen</li>
+                    </ul>
+                    <ul class="lang-content en">
+                        <li>Local brand representation</li>
+                        <li>Partner sourcing & first contact</li>
+                        <li>Contract negotiations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branchenfokus & Produktbilder -->
+        <section>
+            <h2 class="lang-content de">Fokus & Portfolio-Segmente</h2>
+            <h2 class="lang-content en">Focus & Portfolio Segments</h2>
+            
+            <p class="lang-content de">Wir vertreten Premium-Marken aus den Bereichen: <strong>Bio-Lebensmittel, Naturkosmetik, ökologische Reiniger und nachhaltige Haushaltswaren.</strong></p>
+            <p class="lang-content en">We represent premium brands in the fields of: <strong>organic food, natural cosmetics, ecological cleaners, and sustainable household utilities.</strong></p>
+
+            <!-- Bild-Visualisierung basierend auf hochgeladenen Dateien -->
+            <div class="product-gallery">
+                <div class="gallery-left">
+                    <div class="product-img-wrapper">
+                        <img src="Flüssigseife1.png" alt="Savon Liquide de Marseille Lavande">
+                    </div>
+                </div>
+                <div class="gallery-right">
                     <div class="product-img-wrapper">
                         <img src="Bürste.png" alt="Washing Brush and Bamboo Products">
                     </div>
@@ -271,84 +351,32 @@
                 </div>
             </div>
         </section>
-
-        <!-- Leistungen / Services -->
-        <section>
-            <h2 class="lang-content de">Unsere Leistungen</h2>
-            <h2 class="lang-content en">Our Services</h2>
-            <h2 class="lang-content fr">Nos Services</h2>
-            <h2 class="lang-content ar">خدماتنا</h2>
-            
-            <ul>
-                <li class="lang-content de"><strong>Marktexpansion:</strong> Strategische Positionierung maßgeschneidert für den deutschen Handel.</li>
-                <li class="lang-content de"><strong>Handelspartnerschaften:</strong> Platzierung Ihrer Produkte im deutschen Bio- und Facheinzelhandel.</li>
-                
-                <li class="lang-content en"><strong>Market Expansion:</strong> Strategic positioning tailored for the German retail landscape.</li>
-                <li class="lang-content en"><strong>Retail Partnerships:</strong> Connecting your sustainable products with major organic retailers.</li>
-                
-                <li class="lang-content fr"><strong>Expansion du marché:</strong> Positionnement stratégique adapté au commerce allemand.</li>
-                <li class="lang-content fr"><strong>Partenariats commerciaux:</strong> Placement de vos produits dans les magasins bio spécialisés in Allemagne.</li>
-                
-                <li class="lang-content ar"><strong>التوسع في السوق:</strong> تحديد الموقف الاستراتيجي المصمم خصيصاً لقطاع التجزئة الألماني.</li>
-                <li class="lang-content ar"><strong>شراكات تجارية:</strong> وضع منتجاتكم في كبرى أسواق السوبرماركت العضوية والمتخصصة في ألمانيا.</li>
-            </ul>
-        </section>
     </div>
 
-    <!-- Aktiver Footer mit Kontaktdaten -->
     <footer>
         <div class="footer-container">
             <div class="footer-section">
-                <h3>Impressum</h3>
-                <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-                <p>Karim Taleb<br>
-                Nordic Green Agent<br>
-                Mainz, Deutschland</p>
-                <p><strong>Kontakt:</strong><br>
-                Handelsagentur & Vertretung<br>
-                E-Mail: <a href="mailto:nordic.green.germany@web.de">nordic.green.germany@web.de</a><br>
-                Mobile: <a href="tel:004917677545933">0049 176 77545 933</a></p>
+                <h3>Impressum & Kontakt</h3>
+                <p>Karim Taleb | Nordic Green Agent<br>Mainz, Deutschland</p>
+                <p>E-Mail: <a href="mailto:nordic.green.germany@web.de">nordic.green.germany@web.de</a> | Tel: <a href="tel:004917677545933">0049 176 77545 933</a></p>
             </div>
-            
-            <div class="footer-section">
-                <h3>Datenschutzerklärung</h3>
-                <p>Diese Webseite erhebt keine personenbezogenen Daten und nutzt keine Tracking-Cookies.</p>
-            </div>
-            
-            <div style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">
+            <div style="opacity: 0.6; font-size: 0.85rem;">
                 &copy; 2026 Nordic Green Agent. Alle Rechte vorbehalten.
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript für die Sprachumschaltung und Textrichtung -->
     <script>
         function switchLang(lang) {
             document.querySelectorAll('.lang-content').forEach(el => el.style.display = 'none');
-            
-            if (lang === 'ar') {
-                document.body.classList.add('rtl-mode');
-            } else {
-                document.body.classList.remove('rtl-mode');
-            }
-            
             document.querySelectorAll('.lang-content.' + lang).forEach(el => {
-                if (el.tagName === 'P' || el.tagName === 'LI' || el.tagName === 'DIV') {
-                    el.style.display = 'block';
-                } else {
-                    el.style.display = 'inline-block';
-                }
+                el.style.display = (el.tagName === 'P' || el.tagName === 'UL' || el.tagName === 'DIV') ? 'block' : 'inline-block';
             });
-            
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             const currentBtn = Array.from(document.querySelectorAll('.lang-btn')).find(btn => btn.getAttribute('onclick').includes("'" + lang + "'"));
             if (currentBtn) currentBtn.classList.add('active');
         }
-        
-        window.onload = function() {
-            switchLang('de');
-        };
+        window.onload = function() { switchLang('de'); };
     </script>
-
 </body>
 </html>
