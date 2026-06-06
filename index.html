@@ -47,6 +47,11 @@
             text-align: center;
             padding: 4.5rem 2rem;
         }
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
         header h1 {
             margin: 0;
             font-size: 2.6rem;
@@ -70,11 +75,18 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
+        /* Hellgrüner Hintergrund speziell für den Über uns Bereich */
+        section.about-section {
+            background-color: #e2ece9; 
+        }
         h2 {
             color: #2e4a3f;
-            border-bottom: 2px solid #e2ece9;
+            border-bottom: 2px solid #b8d1c8;
             padding-bottom: 0.5rem;
             margin-top: 0;
+        }
+        section:not(.about-section) h2 {
+            border-bottom: 2px solid #e2ece9;
         }
         ul {
             list-style-type: none;
@@ -109,11 +121,9 @@
         strong {
             color: #2e4a3f;
         }
-        
-        /* Korrigierter Footer-Bereich für perfekte Lesbarkeit */
         footer {
             background-color: #1e332a;
-            color: #ffffff; /* Klares Weiß für die Schrift */
+            color: #ffffff;
             padding: 3rem 2rem;
             margin-top: 5rem;
             font-size: 0.95rem;
@@ -128,7 +138,7 @@
             gap: 2.5rem;
         }
         .footer-section h3 {
-            color: #ffffff; /* Weiß für die Überschriften */
+            color: #ffffff;
             font-size: 1.3rem;
             margin-top: 0;
             margin-bottom: 0.8rem;
@@ -137,7 +147,15 @@
         }
         .footer-section p {
             margin: 0.4rem 0;
-            color: rgba(255, 255, 255, 0.9); /* Gut lesbares Off-White für den Text */
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .footer-section a {
+            color: #a3e2c9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -151,19 +169,20 @@
         <button class="lang-btn" onclick="switchLang('ar')">🇦🇪 العربية</button>
     </nav>
 
-    <!-- Header -->
+    <!-- Header mit Logo-Blume -->
     <header>
+        <span class="logo">🌿</span>
         <h1>Nordic Green Agent</h1>
         <p class="lang-content de">Ihr strategischer Partner für den Markteintritt nachhaltiger nordischer Marken</p>
         <p class="lang-content en">Your Strategic Market Entry Partner for Sustainable Nordic Brands</p>
-        <p class="lang-content fr">Votre partenaire stratégique für l'entrée sur le marché des marques nordiques durables</p>
+        <p class="lang-content fr">Votre partenaire stratégique pour l'entrée sur le marché des marques nordiques durables</p>
         <p class="lang-content ar">Your Strategic Market Entry Partner for Sustainable Nordic Brands</p>
     </header>
 
     <div class="container">
         
-        <!-- Über uns / About Us -->
-        <section>
+        <!-- Über uns (mit hellgrüner Klasse) -->
+        <section class="about-section">
             <h2 class="lang-content de">Über uns</h2>
             <h2 class="lang-content en">About Us</h2>
             <h2 class="lang-content fr">À propos de nous</h2>
@@ -172,7 +191,7 @@
             <p class="lang-content de">Nordic Green Agent schlägt die Brücke zwischen innovativen, umweltfreundlichen Produzenten aus Skandinavien und dem deutschen Bio- sowie Facheinzelhandel. Als spezialisierte Handelsagentur mit Sitz in Mainz helfen wir Premium-Öko-Marken dabei, eine starke und dauerhafte Präsenz auf dem deutschen Markt aufzubauen.</p>
             <p class="lang-content en">At Nordic Green Agent, we bridge the gap between innovative Nordic producers and the German organic and specialized retail market. Based in Mainz, our commercial agency helps premium, eco-friendly brands establish a strong, lasting presence in Germany by handling local representation and market strategy.</p>
             <p class="lang-content fr">Chez Nordic Green Agent, nous jetons un pont entre les producteurs nordiques innovants et respectueux de l'environnement et le marché bio allemand. Basée à Mayence, notre agence commerciale aide les marques éco-responsables à établir une présence solide.</p>
-            <p class="lang-content ar">في Nordic Green Agent، نقوم ببناء الجسر بين المنتجين المبتكرين والصديقين للبيئة من الدول الاسكندنافية وسوق التجزئة العضوي والمتخصص في ألمانيا. كوكالة تجارية متخصصة مقرها ماينتس، نساعد العلامات التجارية البيئية المتميزة على التواجد القوي والدائم في السوق الألماني.</p>
+            <p class="lang-content ar">في Nordic Green Agent، نقوم ببناء الجسر zwischen المنتجين المبتكرين والصديقين للبيئة من الدول الاسكندنافية وسوق التجزئة العضوي والمتخصص في ألمانيا. كوكالة تجارية متخصصة مقرها ماينتس، نساعد العلامات التجارية البيئية المتميزة على التواجد القوي والدائم في السوق الألماني.</p>
         </section>
 
         <!-- Sortiment / Focus -->
@@ -224,7 +243,7 @@
         </section>
     </div>
 
-    <!-- Neuer, gut lesbarer B2B-Footer -->
+    <!-- Aktiver Footer mit Kontaktdaten -->
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -234,7 +253,9 @@
                 Nordic Green Agent<br>
                 Mainz, Deutschland</p>
                 <p><strong>Kontakt:</strong><br>
-                Handelsagentur & Vertretung</p>
+                Handelsagentur & Vertretung<br>
+                E-Mail: <a href="mailto:nordic.green.germany@web.de">nordic.green.germany@web.de</a><br>
+                Mobile: <a href="tel:004917677545933">0049 176 77545 933</a></p>
             </div>
             
             <div class="footer-section">
