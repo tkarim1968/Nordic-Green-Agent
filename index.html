@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nordic Green Agent | Ihr Partner für den Markteintritt in Deutschland</title>
+    <title>Nordic Green Agent | Markteintritt & Vertrieb</title>
     <style>
         :root {
             --primary-color: #2e4a3f;
@@ -11,6 +11,8 @@
             --text-color: #2c3e50;
             --bg-color: #f9fbf9;
             --white: #ffffff;
+            --accent-color: #a3e2c9;
+            --accent-hover: #bee9d8;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -20,6 +22,8 @@
             margin: 0;
             padding: 0;
         }
+        
+        /* Sprachnavigation */
         nav {
             background-color: var(--primary-color);
             padding: 1.5rem 2rem 0 2rem;
@@ -44,6 +48,7 @@
             color: var(--primary-color);
             font-weight: bold;
         }
+        
         header {
             background-color: var(--primary-color);
             color: white;
@@ -57,31 +62,57 @@
         }
         header h1 {
             margin: 0;
-            font-size: 2.8rem;
+            font-size: 3rem;
             letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .sub-headline {
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            margin: 0.5rem 0 1.5rem 0;
+            font-weight: 600;
+            line-height: 1.3;
         }
         header p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 1.5rem auto 2rem auto;
+            font-size: 1.25rem;
+            max-width: 750px;
+            margin: 0 auto 2.5rem auto;
             opacity: 0.95;
             font-weight: 300;
         }
+        
+        /* Hero-Vertrauenssignale */
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            color: var(--white);
+        }
+
         .cta-btn {
             display: inline-block;
-            background-color: #a3e2c9;
+            background-color: var(--accent-color);
             color: var(--primary-color);
             text-decoration: none;
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.5rem;
             font-weight: bold;
             border-radius: 4px;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
         .cta-btn:hover {
             transform: translateY(-2px);
-            background-color: #bee9d8;
+            background-color: var(--accent-hover);
         }
         .container {
             max-width: 1000px;
@@ -126,8 +157,21 @@
             height: 100%;
             object-fit: cover;
         }
+        
+        /* RTL Support für Arabisch */
+        .rtl-text {
+            direction: rtl;
+            text-align: right;
+        }
+        .rtl-text ul {
+            padding-right: 1.2rem;
+            padding-left: 0;
+            list-style-position: inside;
+        }
+
         @media (max-width: 650px) {
             .profile-container { flex-direction: column; text-align: center; }
+            .rtl-text { text-align: center; }
         }
 
         /* Grid Layouts für Leistungen */
@@ -233,39 +277,75 @@
 </head>
 <body>
 
-    <!-- Sprachnavigation -->
+    <!-- Erweiterte Sprachnavigation -->
     <nav>
         <button class="lang-btn active" onclick="switchLang('de')">🇩🇪 Deutsch</button>
         <button class="lang-btn" onclick="switchLang('en')">🇬🇧 English</button>
+        <button class="lang-btn" onclick="switchLang('fr')">🇫🇷 Français</button>
+        <button class="lang-btn" onclick="switchLang('ar')">🇦🇪 العربية</button>
     </nav>
 
-    <!-- Header mit starkem Nutzenversprechen -->
+    <!-- Header mit Nutzenversprechen -->
     <header>
         <span class="logo">🌿</span>
         <h1>Nordic Green Agent</h1>
         
-        <p class="lang-content de">Wir unterstützen nordische Bio-, Natur- und Nachhaltigkeitsmarken beim erfolgreichen Aufbau von Vertriebspartnerschaften in Deutschland – von der Marktanalyse bis zur Platzierung im Fachhandel.</p>
-        <p class="lang-content en">We support Nordic organic, natural, and sustainable brands in successfully establishing distribution partnerships in Germany – from market analysis to retail placement.</p>
+        <!-- Sub-Headlines -->
+        <div class="lang-content de sub-headline">Markteintritt & Vertrieb für nordische Bio- und Naturmarken in Deutschland</div>
+        <div class="lang-content en sub-headline">Market Entry & Sales for Nordic Organic and Natural Brands in Germany</div>
+        <div class="lang-content fr sub-headline">Entrée sur le marché & distribution pour les marques bio et naturelles nordiques en Allemagne</div>
+        <div class="lang-content ar sub-headline rtl-text">دخول السوق والتوزيع للعلامات التجارية العضوية والطبيعية الاسكندنافية في ألمانيا</div>
         
-        <a href="mailto:nordic.green.germany@web.de" class="cta-btn lang-content de">Kostenloses Erstgespräch buchen</a>
-        <a href="mailto:nordic.green.germany@web.de" class="cta-btn lang-content en">Book a Free Consultation</a>
+        <!-- Beschreibungen -->
+        <p class="lang-content de">Wir helfen nordischen Bio-, Naturkosmetik- und Nachhaltigkeitsmarken, erfolgreich in den deutschen Markt einzutreten, strategische Handelsbeziehungen aufzubauen und langfristige Platzierungen im Fachhandel zu sichern.</p>
+        <p class="lang-content en">We help Nordic organic, natural cosmetics, and sustainable brands successfully enter the German market, establish strategic commercial relationships, and secure long-term placement in specialized retail.</p>
+        <p class="lang-content fr">Nous aidons les marques nordiques de produits bio, de cosmétiques naturels et de développement durable à s'implanter avec succès sur le marché allemand, à nouer des relations commerciales stratégiques et à garantir des placements à long terme dans le commerce spécialisé.</p>
+        <p class="lang-content ar rtl-text">نحن نساعد العلامات التجارية الاسكندنافية المتخصصة في المنتجات العضوية، مستحضرات التجميل الطبيعية، والاستدامة على دخول السوق الألماني بنجاح، وبناء علاقات تجارية استراتيجية، وضمان تواجد طويل الأمد في متاجر التجزئة المتخصصة.</p>
+        
+        <!-- Hero-Vertrauenssignale -->
+        <div class="hero-badges">
+            <span class="lang-content de hero-badge">✓ Fokus auf deutschen & DACH-Markt</span>
+            <span class="lang-content de hero-badge">✓ Spezialisiert auf Bio- & Natursektor</span>
+            <span class="lang-content de hero-badge">✓ Von Marktanalyse bis Listung</span>
+            
+            <span class="lang-content en hero-badge">✓ Focused on German & DACH Market</span>
+            <span class="lang-content en hero-badge">✓ Specialized in Organic & Natural Sector</span>
+            <span class="lang-content en hero-badge">✓ From Market Analysis to Retail Placement</span>
+
+            <span class="lang-content fr hero-badge">✓ Focus sur le marché allemand & DACH</span>
+            <span class="lang-content fr hero-badge">✓ Spécialisé dans le secteur bio & naturel</span>
+            <span class="lang-content fr hero-badge">✓ De l'analyse de marché au référencement</span>
+
+            <span class="lang-content ar hero-badge">✓ التركيز على السوق الألماني ومنطقة DACH</span>
+            <span class="lang-content ar hero-badge">✓ متخصصون في القطاع العضوي والطبيعي</span>
+            <span class="lang-content ar hero-badge">✓ من تحليل السوق إلى إدراج المنتجات</span>
+        </div>
+
+        <!-- Aktivierender CTA -->
+        <a href="mailto:nordic.green.germany@web.de" class="cta-btn lang-content de">Jetzt Ihren Markteintritt besprechen</a>
+        <a href="mailto:nordic.green.germany@web.de" class="cta-btn lang-content en">Discuss Your Market Entry Now</a>
+        <a href="mailto:nordic.green.germany@web.de" class="cta-btn lang-content fr">Discutez de votre entrée sur le marché</a>
+        <a href="mailto:nordic.green.germany@web.de" class="cta-btn lang-content ar">ناقش دخولك إلى السوق الآن</a>
     </header>
 
     <div class="container">
         
-        <!-- Über mich Sektion mit Ihrem Porträtfoto -->
+        <!-- Über mich Sektion -->
         <section style="background-color: var(--primary-light);">
             <h2 class="lang-content de">Über uns & Vertrauen</h2>
             <h2 class="lang-content en">About Us & Trust</h2>
+            <h2 class="lang-content fr">À propos de nous & Confiance</h2>
+            <h2 class="lang-content ar rtl-text">من نحن & الثقة</h2>
             
             <div class="profile-container">
-                <!-- Ihr hochgeladenes Foto -->
                 <div class="profile-image">
                     <img src="FB_IMG_1638803596232.jpg" alt="Karim Taleb">
                 </div>
                 <div>
                     <p class="lang-content de">Mein Name ist <strong>Karim Taleb</strong>. Ich bin der Gründer von Nordic Green Agent. Als Ihr strategischer Partner begleite ich nachhaltige skandinavische Marken exklusiv beim Eintritt in den deutschen Markt. Durch fundierte Marktkenntnisse und ein wachsendes Netzwerk im deutschen Bio- und Facheinzelhandel ebne ich den Weg für langfristige Handelspartnerschaften.</p>
                     <p class="lang-content en">My name is <strong>Karim Taleb</strong>, founder of Nordic Green Agent. As your strategic partner, I guide sustainable Scandinavian brands through their exclusive entry into the German market. With profound market knowledge and an expanding network in German organic and specialized retail, I clear the path for long-term commercial partnerships.</p>
+                    <p class="lang-content fr">Je m'appelle <strong>Karim Taleb</strong>, fondateur de Nordic Green Agent. En tant que partenaire stratégique, j'accompagne exclusivement les marques scandinaves durables lors de leur entrée sur le marché allemand. Grâce à une connaissance approfondie du marché et à un réseau en pleine croissance dans le commerce bio et spécialisé allemand, j'ouvre la voie à des partenariats commerciaux durables.</p>
+                    <p class="lang-content ar rtl-text">اسمي <strong>كريم طالب</strong>، مؤسس وكالة Nordic Green Agent. كشريك استراتيجي، أرافق العلامات التجارية الاسكندنافية المستدامة بشكل حصري لدخول السوق الألماني. من خلال المعرفة العميقة بالسوق وشبكة العلاقات المتنامية في قطاع التجزئة العضوي والمتخصص في ألمانيا، نمهد الطريق لشراكات تجارية طويلة الأمد.</p>
                 </div>
             </div>
 
@@ -278,6 +358,14 @@
                 <div class="trust-item lang-content en">✓ Based in Mainz, Germany</div>
                 <div class="trust-item lang-content en">✓ Focused on Nordic Sustainability</div>
                 <div class="trust-item lang-content en">✓ End-to-End Sales Support</div>
+
+                <div class="trust-item lang-content fr">✓ Basé à Mayence, Allemagne</div>
+                <div class="trust-item lang-content fr">✓ Focus sur la durabilité nordique</div>
+                <div class="trust-item lang-content fr">✓ Support commercial de bout en bout</div>
+
+                <div class="trust-item lang-content ar">✓ المقر في ماينتس، ألمانيا</div>
+                <div class="trust-item lang-content ar">✓ التركيز على الاستدامة الاسكندنافية</div>
+                <div class="trust-item lang-content ar">✓ دعم المبيعات الشامل</div>
             </div>
         </section>
 
@@ -285,87 +373,150 @@
         <section>
             <h2 class="lang-content de">Strukturierte Leistungen</h2>
             <h2 class="lang-content en">Our Core Services</h2>
+            <h2 class="lang-content fr">Nos Services</h2>
+            <h2 class="lang-content ar rtl-text">خدماتنا الأساسية</h2>
             
             <div class="grid-3">
-                <div class="card">
-                    <h3 class="lang-content de">1. Markteintritt</h3>
-                    <h3 class="lang-content en">1. Market Entry</h3>
-                    <ul class="lang-content de">
+                <!-- Card 1 -->
+                <div class="card lang-content de">
+                    <h3>1. Markteintritt</h3>
+                    <ul>
                         <li>Markt- & Wettbewerbsanalyse</li>
                         <li>Positionierungsberatung</li>
                         <li>Zielgruppenidentifikation</li>
                     </ul>
-                    <ul class="lang-content en">
+                </div>
+                <div class="card lang-content en">
+                    <h3>1. Market Entry</h3>
+                    <ul>
                         <li>Market & competitor analysis</li>
                         <li>Positioning & strategy consulting</li>
                         <li>Target group identification</li>
                     </ul>
                 </div>
+                <div class="card lang-content fr">
+                    <h3>1. Entrée sur le marché</h3>
+                    <ul>
+                        <li>Analyse de marché & concurrence</li>
+                        <li>Conseil en positionnement</li>
+                        <li>Identification du groupe cible</li>
+                    </ul>
+                </div>
+                <div class="card lang-content ar rtl-text">
+                    <h3>١. دخول السوق</h3>
+                    <ul>
+                        <li>تحليل السوق والمنافسين</li>
+                        <li>استشارات تحديد الموقع الاستراتيجي</li>
+                        <li>تحديد الفئات المستهدفة</li>
+                    </ul>
+                </div>
                 
-                <div class="card">
-                    <h3 class="lang-content de">2. Vertrieb & Handel</h3>
-                    <h3 class="lang-content en">2. Sales & Retail</h3>
-                    <ul class="lang-content de">
+                <!-- Card 2 -->
+                <div class="card lang-content de">
+                    <h3>2. Vertrieb & Handel</h3>
+                    <ul>
                         <li>Bio- & Facheinzelhandel</li>
                         <li>Ansprache von Distributoren</li>
                         <li>Großhandelsplatzierungen</li>
                     </ul>
-                    <ul class="lang-content en">
+                </div>
+                <div class="card lang-content en">
+                    <h3>2. Sales & Retail</h3>
+                    <ul>
                         <li>Organic & specialized retail</li>
                         <li>Distributor outreach</li>
                         <li>Wholesale placements</li>
                     </ul>
                 </div>
+                <div class="card lang-content fr">
+                    <h3>2. Ventes & Commerce</h3>
+                    <ul>
+                        <li>Commerce bio & spécialisé</li>
+                        <li>Approche des distributeurs</li>
+                        <li>Placements de vente en gros</li>
+                    </ul>
+                </div>
+                <div class="card lang-content ar rtl-text">
+                    <h3>٢. المبيعات والتجارة</h3>
+                    <ul>
+                        <li>تجزئة الأغذية العضوية والمتخصصة</li>
+                        <li>التواصل مع الموزعين</li>
+                        <li>التواجد في تجارة الجملة</li>
+                    </ul>
+                </div>
 
-                <div class="card">
-                    <h3 class="lang-content de">3. Business Development</h3>
-                    <h3 class="lang-content en">3. Business Development</h3>
-                    <ul class="lang-content de">
+                <!-- Card 3 -->
+                <div class="card lang-content de">
+                    <h3>3. Business Development</h3>
+                    <ul>
                         <li>Lokale Repräsentanz</li>
                         <li>Partnersuche & Erstkontakt</li>
                         <li>Vertragsverhandlungen</li>
                     </ul>
-                    <ul class="lang-content en">
+                </div>
+                <div class="card lang-content en">
+                    <h3>3. Business Development</h3>
+                    <ul>
                         <li>Local brand representation</li>
-                        <li>Partner sourcing & first contact</li>
+                        <li>Partner sourcing & contact</li>
                         <li>Contract negotiations</li>
+                    </ul>
+                </div>
+                <div class="card lang-content fr">
+                    <h3>3. Business Development</h3>
+                    <ul>
+                        <li>Représentation locale</li>
+                        <li>Recherche de partenaires</li>
+                        <li>Négociations de contrats</li>
+                    </ul>
+                </div>
+                <div class="card lang-content ar rtl-text">
+                    <h3>٣. تطوير الأعمال</h3>
+                    <ul>
+                        <li>التمثيل المحلي للعلامة التجارية</li>
+                        <li>البحث عن شركاء والاتصال الأولي</li>
+                        <li>مفاوضات العقود</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Branchenfokus & Produktbilder -->
+        <!-- Portfolio-Segmente -->
         <section>
             <h2 class="lang-content de">Fokus & Portfolio-Segmente</h2>
             <h2 class="lang-content en">Focus & Portfolio Segments</h2>
+            <h2 class="lang-content fr">Focus & Secteurs du Portfolio</h2>
+            <h2 class="lang-content ar rtl-text">التركيز وفئات المنتجات</h2>
             
             <p class="lang-content de">Wir vertreten Premium-Marken aus den Bereichen: <strong>Bio-Lebensmittel, Naturkosmetik, ökologische Reiniger und nachhaltige Haushaltswaren.</strong></p>
             <p class="lang-content en">We represent premium brands in the fields of: <strong>organic food, natural cosmetics, ecological cleaners, and sustainable household utilities.</strong></p>
+            <p class="lang-content fr">Nous représentons des marques haut de gamme dans les domaines suivants : <strong>alimentation bio, cosmétiques naturels, nettoyants écologiques et articles ménagers durables.</strong></p>
+            <p class="lang-content ar rtl-text">نحن نمثل علامات تجارية متميزة في مجالات: <strong>الأغذية العضوية، مستحضرات التجميل الطبيعية، المنظفات البيئية، والأدوات المنزلية المستدامة.</strong></p>
 
-            <!-- Stilvolle Bildergalerie -->
+            <!-- Bildergalerie -->
             <div class="product-gallery">
                 <div class="gallery-left">
                     <div class="product-img-wrapper">
-                        <img src="Flüssigseife1.png" alt="Maison Belle Seife">
+                        <img src="Flüssigseife1.png" alt="Maison Belle">
                     </div>
                 </div>
                 <div class="gallery-right">
                     <div class="product-img-wrapper">
-                        <img src="Bürste.png" alt="Nachhaltige Bürste">
+                        <img src="Bürste.png" alt="Bürste">
                     </div>
                     <div class="product-img-wrapper">
-                        <img src="Flüssigseifen.png" alt="Maison Belle Sortiment">
+                        <img src="Flüssigseifen.png" alt="Sortiment">
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Professioneller Footer -->
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-section">
-                <h3>Impressum & Kontakt</h3>
+                <h3>Impressum & Kontakt / Mentions légales</h3>
                 <p>Karim Taleb | Nordic Green Agent<br>Mainz, Deutschland</p>
                 <p>E-Mail: <a href="mailto:nordic.green.germany@web.de">nordic.green.germany@web.de</a> | Tel: <a href="tel:004917677545933">0049 176 77545 933</a></p>
             </div>
@@ -375,13 +526,19 @@
         </div>
     </footer>
 
-    <!-- Sprachumschaltungs-Logik -->
+    <!-- Sprachumschaltungs-Logik für 4 Sprachen -->
     <script>
         function switchLang(lang) {
             document.querySelectorAll('.lang-content').forEach(el => el.style.display = 'none');
+            
             document.querySelectorAll('.lang-content.' + lang).forEach(el => {
-                el.style.display = (el.tagName === 'P' || el.tagName === 'UL' || el.tagName === 'DIV') ? 'block' : 'inline-block';
+                if (el.tagName === 'P' || el.tagName === 'UL' || el.tagName === 'DIV' || el.classList.contains('card')) {
+                    el.style.display = 'block';
+                } else {
+                    el.style.display = 'inline-block';
+                }
             });
+            
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             const currentBtn = Array.from(document.querySelectorAll('.lang-btn')).find(btn => btn.getAttribute('onclick').includes("'" + lang + "'"));
             if (currentBtn) currentBtn.classList.add('active');
