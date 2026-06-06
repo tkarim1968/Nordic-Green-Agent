@@ -109,31 +109,35 @@
         strong {
             color: #2e4a3f;
         }
+        
+        /* Korrigierter Footer-Bereich für perfekte Lesbarkeit */
         footer {
             background-color: #1e332a;
-            color: white;
+            color: #ffffff; /* Klares Weiß für die Schrift */
             padding: 3rem 2rem;
             margin-top: 5rem;
             font-size: 0.95rem;
             border-top: 4px solid #2e4a3f;
+            text-align: center;
         }
-        .footer-grid {
+        .footer-container {
             max-width: 900px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            text-align: left;
+            gap: 2.5rem;
         }
         .footer-section h3 {
-            color: #ffffff;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 0.5rem;
+            color: #ffffff; /* Weiß für die Überschriften */
+            font-size: 1.3rem;
             margin-top: 0;
+            margin-bottom: 0.8rem;
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
         .footer-section p {
-            margin: 0.5rem 0;
-            opacity: 0.9;
+            margin: 0.4rem 0;
+            color: rgba(255, 255, 255, 0.9); /* Gut lesbares Off-White für den Text */
         }
     </style>
 </head>
@@ -152,7 +156,7 @@
         <h1>Nordic Green Agent</h1>
         <p class="lang-content de">Ihr strategischer Partner für den Markteintritt nachhaltiger nordischer Marken</p>
         <p class="lang-content en">Your Strategic Market Entry Partner for Sustainable Nordic Brands</p>
-        <p class="lang-content fr">Votre partenaire stratégique pour l'entrée sur le marché des marques nordiques durables</p>
+        <p class="lang-content fr">Votre partenaire stratégique für l'entrée sur le marché des marques nordiques durables</p>
         <p class="lang-content ar">Your Strategic Market Entry Partner for Sustainable Nordic Brands</p>
     </header>
 
@@ -168,7 +172,7 @@
             <p class="lang-content de">Nordic Green Agent schlägt die Brücke zwischen innovativen, umweltfreundlichen Produzenten aus Skandinavien und dem deutschen Bio- sowie Facheinzelhandel. Als spezialisierte Handelsagentur mit Sitz in Mainz helfen wir Premium-Öko-Marken dabei, eine starke und dauerhafte Präsenz auf dem deutschen Markt aufzubauen.</p>
             <p class="lang-content en">At Nordic Green Agent, we bridge the gap between innovative Nordic producers and the German organic and specialized retail market. Based in Mainz, our commercial agency helps premium, eco-friendly brands establish a strong, lasting presence in Germany by handling local representation and market strategy.</p>
             <p class="lang-content fr">Chez Nordic Green Agent, nous jetons un pont entre les producteurs nordiques innovants et respectueux de l'environnement et le marché bio allemand. Basée à Mayence, notre agence commerciale aide les marques éco-responsables à établir une présence solide.</p>
-            <p class="lang-content ar">في Nordic Green Agent، نقوم ببناء الجسر بين المنتجين المبتكرين والصديقين للبيئة من الدول الاسكندنافية وسوق التجزئة العضوي والمتخصص في ألمانيا. كوكالة تجارية متخصصة مقرها ماينتس، نساعد العلامات التجارية البيئية Mتميزة على التواجد القوي والدائم في السوق الألماني.</p>
+            <p class="lang-content ar">في Nordic Green Agent، نقوم ببناء الجسر بين المنتجين المبتكرين والصديقين للبيئة من الدول الاسكندنافية وسوق التجزئة العضوي والمتخصص في ألمانيا. كوكالة تجارية متخصصة مقرها ماينتس، نساعد العلامات التجارية البيئية المتميزة على التواجد القوي والدائم في السوق الألماني.</p>
         </section>
 
         <!-- Sortiment / Focus -->
@@ -220,9 +224,9 @@
         </section>
     </div>
 
-    <!-- Festes Impressum im Footer (Immer auf Deutsch sichtbar) -->
+    <!-- Neuer, gut lesbarer B2B-Footer -->
     <footer>
-        <div class="footer-grid">
+        <div class="footer-container">
             <div class="footer-section">
                 <h3>Impressum</h3>
                 <p><strong>Angaben gemäß § 5 TMG:</strong></p>
@@ -232,11 +236,13 @@
                 <p><strong>Kontakt:</strong><br>
                 Handelsagentur & Vertretung</p>
             </div>
+            
             <div class="footer-section">
                 <h3>Datenschutzerklärung</h3>
                 <p>Diese Webseite erhebt keine personenbezogenen Daten und nutzt keine Tracking-Cookies.</p>
             </div>
-            <div style="text-align: center; margin-top: 1rem; opacity: 0.6; font-size: 0.85rem;">
+            
+            <div style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">
                 &copy; 2026 Nordic Green Agent. Alle Rechte vorbehalten.
             </div>
         </div>
