@@ -13,12 +13,13 @@
             margin: 0;
             padding: 0;
         }
+        /* Navigation komplett zentriert und im helleren Grün */
         nav {
-            background-color: #1e332a;
-            padding: 1rem 2rem;
-            text-align: right;
+            background-color: #2e4a3f;
+            padding: 1.5rem 2rem 0 2rem;
+            text-align: center;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
@@ -37,15 +38,16 @@
         }
         .lang-btn:hover, .lang-btn.active {
             background-color: white;
-            color: #1e332a;
+            color: #2e4a3f;
             font-weight: bold;
             border-color: white;
         }
+        /* Header nahtlos im gleichen helleren Grün und zentriert */
         header {
             background-color: #2e4a3f;
             color: white;
             text-align: center;
-            padding: 4.5rem 2rem;
+            padding: 3.5rem 2rem 4.5rem 2rem;
         }
         .logo {
             font-size: 3rem;
@@ -75,7 +77,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-        /* Hellgrüner Hintergrund speziell für den Über uns Bereich */
+        /* Hellgrüner Hintergrund für den Über uns Bereich */
         section.about-section {
             background-color: #e2ece9; 
         }
@@ -107,7 +109,7 @@
             text-align: right;
         }
         .rtl-mode nav {
-            justify-content: flex-start;
+            justify-content: center;
         }
         .rtl-mode li {
             padding-left: 0;
@@ -161,7 +163,7 @@
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Zentrierte Navigation -->
     <nav>
         <button class="lang-btn active" onclick="switchLang('de')">🇩🇪 Deutsch</button>
         <button class="lang-btn" onclick="switchLang('en')">🇬🇧 English</button>
@@ -169,7 +171,7 @@
         <button class="lang-btn" onclick="switchLang('ar')">🇦🇪 العربية</button>
     </nav>
 
-    <!-- Header mit Logo-Blume -->
+    <!-- Zentrierter Header -->
     <header>
         <span class="logo">🌿</span>
         <h1>Nordic Green Agent</h1>
@@ -181,7 +183,7 @@
 
     <div class="container">
         
-        <!-- Über uns (mit hellgrüner Klasse) -->
+        <!-- Über uns (hellgrün) -->
         <section class="about-section">
             <h2 class="lang-content de">Über uns</h2>
             <h2 class="lang-content en">About Us</h2>
@@ -191,7 +193,7 @@
             <p class="lang-content de">Nordic Green Agent schlägt die Brücke zwischen innovativen, umweltfreundlichen Produzenten aus Skandinavien und dem deutschen Bio- sowie Facheinzelhandel. Als spezialisierte Handelsagentur mit Sitz in Mainz helfen wir Premium-Öko-Marken dabei, eine starke und dauerhafte Präsenz auf dem deutschen Markt aufzubauen.</p>
             <p class="lang-content en">At Nordic Green Agent, we bridge the gap between innovative Nordic producers and the German organic and specialized retail market. Based in Mainz, our commercial agency helps premium, eco-friendly brands establish a strong, lasting presence in Germany by handling local representation and market strategy.</p>
             <p class="lang-content fr">Chez Nordic Green Agent, nous jetons un pont entre les producteurs nordiques innovants et respectueux de l'environnement et le marché bio allemand. Basée à Mayence, notre agence commerciale aide les marques éco-responsables à établir une présence solide.</p>
-            <p class="lang-content ar">في Nordic Green Agent، نقوم ببناء الجسر zwischen المنتجين المبتكرين والصديقين للبيئة من الدول الاسكندنافية وسوق التجزئة العضوي والمتخصص في ألمانيا. كوكالة تجارية متخصصة مقرها ماينتس، نساعد العلامات التجارية البيئية المتميزة على التواجد القوي والدائم في السوق الألماني.</p>
+            <p class="lang-content ar">في Nordic Green Agent، نقوم ببناء الجسر بين المنتجين المبتكرين والصديقين للبيئة من الدول الاسكندنافية وسوق التجزئة العضوي والمتخصص في ألمانيا. كوكالة تجارية متخصصة مقرها ماينتس، نساعد العلامات التجارية البيئية المتميزة على التواجد القوي والدائم in السوق الألماني.</p>
         </section>
 
         <!-- Sortiment / Focus -->
