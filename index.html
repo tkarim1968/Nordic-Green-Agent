@@ -3,122 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nordic Green Agent | شريكك الاستراتيجي لدخول السوق</title>
+    <title>Nordic Green Agent | Your Strategic Market Entry Partner</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background-color: #f9f9f9; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
-        header { background: #2d5a27; color: white; padding: 60px 20px; text-align: center; border-radius: 10px; margin-bottom: 20px; }
-        .logo { font-size: 4rem; margin-bottom: 10px; }
-        nav { background: #fff; padding: 15px; text-align: center; border-bottom: 2px solid #ddd; margin-bottom: 30px; position: sticky; top: 0; z-index: 100; }
-        nav a { margin: 0 15px; cursor: pointer; color: #2d5a27; font-weight: bold; text-decoration: none; }
-        section { margin-bottom: 30px; padding: 30px; border: 1px solid #ddd; border-radius: 10px; background-color: #fff; }
-        .promise-section { background-color: #e8f5e9; border: 1px solid #c8e6c9; }
-        h2 { color: #2d5a27; margin-top: 0; }
-        .contact-info { line-height: 2; }
-        footer { text-align: center; margin-top: 50px; padding: 20px; color: #777; font-size: 0.9em; border-top: 1px solid #ddd; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f9fbf9;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #1e332a;
+            padding: 1rem 2rem;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .lang-btn {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background-color: white;
+            color: #1e332a;
+            font-weight: bold;
+            border-color: white;
+        }
+        header {
+            background-color: #2e4a3f;
+            color: white;
+            text-align: center;
+            padding: 4.5rem 2rem;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.6rem;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+            font-weight: 300;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: #2e4a3f;
+            border-bottom: 2px solid #e2ece9;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+        /* Standard-Icon für Links-nach-Rechts Sprachen */
+        body:not(.rtl-mode) li::before {
+            content: "🌿";
+            position: absolute;
+            left: 0;
+        }
+        /* Anpassung für die arabische Rechts-nach-Links Richtung */
+        .rtl-mode {
+            direction: rtl;
+            text-align: right;
+        }
+        .rtl-mode nav {
+            justify-content: flex-start;
+        }
+        .rtl-mode li {
+            padding-left: 0;
+            padding-right: 1.8rem;
+        }
+        .rtl-mode li::before {
+            content: "🌿";
+            position: absolute;
+            right: 0;
+        }
+        strong {
+            color: #2e4a3f;
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">🌿</div>
-        <h1>Nordic Green Agent</h1>
-        <p>شريكك الاستراتيجي لدخول السوق الألماني.</p>
-    </header>
-
+    <!-- Navigation mit den 4 Sprachen -->
     <nav>
-        <a onclick="setLang('en')">English</a> | 
-        <a onclick="setLang('de')">Deutsch</a> | 
-        <a onclick="setLang('fr')">Français</a> | 
-        <a onclick="setLang('ar')">العربية</a>
+        <button class="lang-btn active" onclick="switchLang('de')">🇩🇪 Deutsch</button>
+        <button class="lang-btn" onclick="switchLang('en')">🇬🇧 English</button>
+        <button class="lang-btn" onclick="switchLang('fr')">🇫🇷 Français</button>
+        <button class="lang-btn" onclick="switchLang('ar')">🇦🇪 العربية</button>
     </nav>
 
+    <!-- Header Bereich -->
+    <header>
+        <h1>Nordic Green Agent</h1>
+        
+        <p class="lang-content de">Ihr strategischer Partner für den Markteintritt nachhaltiger nordischer Marken</p>
+        <p class="lang-content en">Your Strategic Market Entry Partner for Sustainable Nordic Brands</p>
+        <p class="lang-content fr">Votre partenaire stratégique pour l'entrée sur le marché des marques nordiques durables</p>
+        <p class="lang-content ar">شريكك الاستراتيجي لدخول السوق للماركات الاسكندنافية المستدامة</p>
+    </header>
+
     <div class="container">
-        <section class="promise-section">
-            <h2 id="promise-title"></h2>
-            <p id="promise-text" style="font-weight: bold;"></p>
-            <div id="promise-details"></div>
+        
+        <!-- Über uns / About Us -->
+        <section>
+            <h2 class="lang-content de">Über uns</h2>
+            <h2 class="lang-content en">About Us</h2>
+            <h2 class="lang-content fr">À propos de nous</h2>
+            <h2 class="lang-content ar">من نحن</h2>
+            
+            <p class="lang-content de">Nordic Green Agent schlägt die Brücke zwischen innovativen, umweltfreundlichen Produzenten aus Skandinavien und dem deutschen Bio- sowie Facheinzelhandel. Als spezialisierte Handelsagentur mit Sitz in Mainz helfen wir Premium-Öko-Marken dabei, eine starke und dauerhafte Präsenz auf dem deutschen Markt aufzubauen.</p>
+            
+            <p class="lang-content en">At Nordic Green Agent, we bridge the gap between innovative Nordic producers and the German organic and specialized retail market. Based in Mainz, our commercial agency helps premium, eco-friendly brands establish a strong, lasting presence in Germany by handling local representation and market strategy.</p>
+            
+            <p class="lang-content fr">Chez Nordic Green Agent, wir machen die Brücke entre les producteurs nordiques innovants et le marché bio et spécialisé allemand. Basée à Mayence, notre agence commerciale aide les marques éco-responsables haut de gamme à établir une présence solide et durable en Allemagne.</p>
+            
+            <p class="lang-content ar">في Nordic Green Agent، نقوم ببناء الجسر بين المنتجين المبتكرين والصديقين للبيئة من الدول الاسكندنافية وسوق التجزئة العضوي والمتخصص في ألمانيا. كوكالة تجارية متخصصة مقرها ماينتس، نساعد العلامات التجارية البيئية المتميزة على التواجد القوي والدائم في السوق الألماني.</p>
         </section>
 
+        <!-- Sortiment / Focus -->
         <section>
-            <h2 id="about-title"></h2>
-            <p id="about-text"></p>
+            <h2 class="lang-content de">Unser Fokus & Sortiment</h2>
+            <h2 class="lang-content en">Our Focus & Portfolio</h2>
+            <h2 class="lang-content fr">Notre Objectif & Gamme</h2>
+            <h2 class="lang-content ar">تركيزنا ومجموعتنا</h2>
+            
+            <p class="lang-content de">Wir vertreten exklusiv Marken, die höchste Wirksamkeit mit modernem skandinavischem Design und Umweltverträglichkeit verbinden:</p>
+            <p class="lang-content en">We exclusively represent brands that combine maximum effectiveness with modern Scandinavian design and environmental compatibility:</p>
+            <p class="lang-content fr">Nous représentons exclusivement des marques qui allient efficacité maximale, design scandinave moderne et respect de l'environnement :</p>
+            <p class="lang-content ar">نحن نمثل حصرياً العلامات التجارية التي تجمع بين الكفاءة العالية والتصميم الاسكندنافي الحديث والاستدامة البيئية:</p>
+            
+            <ul>
+                <!-- DE -->
+                <li class="lang-content de"><strong>Ökologische Reiniger:</strong> Nachhaltige Haushaltsprodukte für ein grünes Zuhause.</li>
+                <li class="lang-content de"><strong>Nachhaltige Körperpflege:</strong> Natürliche und umweltfreundliche Pflegeprodukte.</li>
+                <li class="lang-content de"><strong>Plastikfreie Haushaltshelfer:</strong> Innovative Produkte aus Bambus und Luffa.</li>
+                
+                <!-- EN -->
+                <li class="lang-content en"><strong>Ecological Cleaners:</strong> Sustainable household products for a green home.</li>
+                <li class="lang-content en"><strong>Sustainable Personal Care:</strong> Natural and eco-friendly care products.</li>
+                <li class="lang-content en"><strong>Plastic-Free Utilities:</strong> Innovative products made from bamboo and luffa.</li>
+                
+                <!-- FR -->
+                <li class="lang-content fr"><strong>Nettoyants écologiques:</strong> Produits ménagers durables für eine maison verte.</li>
+                <li class="lang-content fr"><strong>Soins corporels durables:</strong> Produits de soin naturels et respectueux de l'environnement.</li>
+                <li class="lang-content fr"><strong>Ustensiles sans plastique:</strong> Produits innovants en bambou et luffa.</li>
+                
+                <!-- AR -->
+                <li class="lang-content ar"><strong>منظفات بيئية:</strong> منتجات منزلية مستدامة لمنزل أخضر ونظيف.</li>
+                <li class="lang-content ar"><strong>عناية شخصية مستدامة:</strong> منتجات عناية طبيعية وصديقة للبيئة.</li>
+                <li class="lang-content ar"><strong>أدوات منزلية خالية من البلاستيك:</strong> منتجات مبتكرة مصنوعة من الخيزران (البامبو) والليف الطبيعي.</li>
+            </ul>
         </section>
 
+        <!-- Leistungen / Services -->
         <section>
-            <h2 id="services-title"></h2>
-            <ul id="services-list"></ul>
-        </section>
-
-        <section>
-            <h2 id="contact-title"></h2>
-            <div id="contact-details" class="contact-info"></div>
-        </section>
-
-        <section>
-            <h2 id="impressum-title"></h2>
-            <div id="impressum-details" class="contact-info"></div>
+            <h2 class="lang-content de">Unsere Leistungen</h2>
+            <h2 class="lang-content en">Our Services</h2>
+            <h2 class="lang-content fr">Nos Services</h2>
+            <h2 class="lang-content ar">خدماتنا</h2>
+            
+            <ul>
+                <!-- DE -->
+                <li class="lang-content de"><strong>Marktexpansion:</strong> Strategische Positionierung maßgeschneidert für den deutschen Handel.</li>
+                <li class="lang-content de"><strong>Handelspartnerschaften:</strong> Platzierung Ihrer Produkte im deutschen Bio- und Facheinzelhandel.</li>
+                
+                <!-- EN -->
+                <li class="lang-content en"><strong>Market Expansion:</strong> Strategic positioning tailored for the German retail landscape.</li>
+                <li class="lang-content en"><strong>Retail Partnerships:</strong> Connecting your sustainable products with major organic retailers.</li>
+                
+                <!-- FR -->
+                <li class="lang-content fr"><strong>Expansion du marché:</strong> Positionnement stratégique adapté au commerce allemand.</li>
+                <li class="lang-content fr"><strong>Partenariats commerciaux:</strong> Placement de vos produits dans les magasins bio spécialisés en Allemagne.</li>
+                
+                <!-- AR -->
+                <li class="lang-content ar"><strong>التوسع في السوق:</strong> تحديد الموقف الاستراتيجي المصمم خصيصاً لقطاع التجزئة الألماني.</li>
+                <li class="lang-content ar"><strong>شراكات تجارية:</strong> وضع منتجاتكم في كبرى أسواق السوبرماركت العضوية والمتخصصة في ألمانيا.</li>
+            </ul>
         </section>
     </div>
 
-    <footer>
-        <p>© 2026 Nordic Green Agent. جميع الحقوق محفوظة.</p>
-    </footer>
-
+    <!-- JavaScript für die Sprachumschaltung und Textrichtung -->
     <script>
-        const data = {
-            de: {
-                promise: "Unser Versprechen", promiseText: "Höchste Qualität und ökologische Verantwortung für den bewussten deutschen Konsumenten.",
-                promiseDetails: "<p><strong>1. Kompromisslose Qualität:</strong> Wir wählen unsere Partner in Skandinavien sorgfältig aus.</p><p><strong>2. Nachhaltigkeit als Fundament:</strong> Wir fördern Marken, die ressourcenschonend produzieren.</p><p><strong>3. Transparenz & Vertrauen:</strong> Klare Kommunikation und faire Zusammenarbeit mit dem Handel.</p>",
-                about: "Über uns", aboutText: "Nordic Green Agent ist Ihr spezialisierter Partner für die erfolgreiche Markteinführung skandinavischer Premiummarken in Deutschland. Mit Sitz in Mainz verstehen wir die Dynamik des deutschen Einzelhandels.",
-                services: "Unsere Leistungen", servicesList: ["Markteintrittsstrategie", "Vertriebsvertretung", "Marktanalyse", "Logistik-Support"],
-                contact: "Kontakt", contactDetails: "<p><strong>Karim Taleb</strong> - Geschäftsführer<br>Mainz, Deutschland<br>Tel: +49 176 77545933<br>E-Mail: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a></p>",
-                impressum: "Impressum", impressumDetails: "<p><strong>Angaben gemäß § 5 TMG:</strong><br>Karim Taleb, Nordic Green Agent<br>Pankratiusstrasse 24a, 55116 Mainz<br>Tel: +49 6131 495 6664<br>Mobil: +49 176 77545933<br>E-Mail: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a><br>USt-IdNr.: DE443783347</p>"
-            },
-            en: {
-                promise: "Our Promise", promiseText: "Highest quality and ecological responsibility for the conscious German consumer.",
-                promiseDetails: "<p><strong>1. Uncompromising Quality:</strong> Carefully selected partners.</p><p><strong>2. Sustainability:</strong> Resource-efficient production focus.</p><p><strong>3. Transparency:</strong> Fair collaboration with retail partners.</p>",
-                about: "About Us", aboutText: "Nordic Green Agent is your specialized partner for the successful market launch of premium Scandinavian brands in Germany.",
-                services: "Our Services", servicesList: ["Market Entry Strategy", "Sales Representation", "Market Analysis", "Logistics Support"],
-                contact: "Contact", contactDetails: "<p><strong>Karim Taleb</strong> - Managing Director<br>Mainz, Germany<br>Tel: +49 176 77545933<br>Email: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a></p>",
-                impressum: "Legal Notice", impressumDetails: "<p><strong>Information according to § 5 TMG:</strong><br>Karim Taleb, Nordic Green Agent<br>Pankratiusstrasse 24a, 55116 Mainz<br>Tel: +49 6131 495 6664<br>Mobile: +49 176 77545933<br>Email: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a><br>VAT ID: DE443783347</p>"
-            },
-            fr: {
-                promise: "Notre Promesse", promiseText: "Qualité supérieure et responsabilité écologique pour le consommateur.",
-                promiseDetails: "<p><strong>1. Qualité sans compromis:</strong> Sélection rigoureuse.</p><p><strong>2. Durabilité:</strong> Promotion de marques éco-responsables.</p><p><strong>3. Transparence:</strong> Partenariats équitables.</p>",
-                about: "À propos", aboutText: "Nordic Green Agent est votre partenaire spécialisé pour le lancement réussi de marques scandinaves en Allemagne.",
-                services: "Nos Services", servicesList: ["Stratégie d'entrée", "Représentation commerciale", "Analyse de marché", "Support Logistique"],
-                contact: "Contact", contactDetails: "<p><strong>Karim Taleb</strong> - Directeur général<br>Mainz, Allemagne<br>Tel: +49 176 77545933<br>E-mail: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a></p>",
-                impressum: "Mentions Légales", impressumDetails: "<p><strong>Informations selon § 5 TMG:</strong><br>Karim Taleb, Nordic Green Agent<br>Pankratiusstrasse 24a, 55116 Mainz<br>Tel: +49 6131 495 6664<br>Mobile: +49 176 77545933<br>E-mail: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a><br>N° de TVA: DE443783347</p>"
-            },
-            ar: {
-                promise: "وعدنا", promiseText: "أعلى مستويات الجودة والمسؤولية البيئية للمستهلك الواعي.",
-                promiseDetails: "<p><strong>1. جودة لا تضاهى:</strong> اختيار دقيق لشركائنا.</p><p><strong>2. الاستدامة:</strong> دعم العلامات التجارية المستدامة.</p><p><strong>3. الشفافية:</strong> تعاون عادل مع الشركاء.</p>",
-                about: "من نحن", aboutText: "تعد شركة Nordic Green Agent شريكك المتخصص للإطلاق الناجح للعلامات التجارية الإسكندنافية في ألمانيا. من مقرنا في ماينتس، نفهم ديناميكيات تجارة التجزئة الألمانية.",
-                services: "خدماتنا", servicesList: ["استراتيجية دخول السوق", "التمثيل التجاري", "تحليل السوق", "دعم الخدمات اللوجستية"],
-                contact: "اتصل بنا", contactDetails: "<p><strong>Karim Taleb</strong> - المدير العام<br>ماينتس، ألمانيا<br>Tel: +49 176 77545933<br>Email: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a></p>",
-                impressum: "المعلومات القانونية", impressumDetails: "<p><strong>المعلومات وفقاً للقانون الألماني (§ 5 TMG):</strong><br>Karim Taleb, Nordic Green Agent<br>Pankratiusstrasse 24a, 55116 Mainz<br>Tel: +49 6131 495 6664<br>Mobile: +49 176 77545933<br>Email: <a href='mailto:nordic.green.germany@web.de'>nordic.green.germany@web.de</a><br>الرقم الضريبي: DE443783347</p>"
-            }
-        };
-
-        function setLang(lang) {
-            document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-            document.getElementById('promise-title').innerText = data[lang].promise;
-            document.getElementById('promise-text').innerText = data[lang].promiseText;
-            document.getElementById('promise-details').innerHTML = data[lang].promiseDetails;
-            document.getElementById('about-title').innerText = data[lang].about;
-            document.getElementById('about-text').innerText = data[lang].aboutText;
-            document.getElementById('services-title').innerText = data[lang].services;
-            document.getElementById('contact-title').innerText = data[lang].contact;
-            document.getElementById('contact-details').innerHTML = data[lang].contactDetails;
-            document.getElementById('impressum-title').innerText = data[lang].impressum;
-            document.getElementById('impressum-details').innerHTML = data[lang].impressumDetails;
+        function switchLang(lang) {
+            // Alle Text-Elemente ausblenden
+            document.querySelectorAll('.lang-content').forEach(el => el.style.display = 'none');
             
-            const list = document.getElementById('services-list');
-            list.innerHTML = '';
-            data[lang].servicesList.forEach(item => { const li = document.createElement('li'); li.innerText = item; list.appendChild(li); });
+            // Textrichtung anpassen (RTL für Arabisch, LTR für andere)
+            if (lang === 'ar') {
+                document.body.classList.add('rtl-mode');
+            } else {
+                document.body.classList.remove('rtl-mode');
+            }
+            
+            // Nur die ausgewählte Sprache anzeigen
+            document.querySelectorAll('.lang-content.' + lang).forEach(el => {
+                if (el.tagName === 'P' || el.tagName === 'LI') {
+                    el.style.display = 'block';
+                } else {
+                    el.style.display = 'inline-block';
+                }
+            });
+            
+            // Aktiven Button-Status aktualisieren
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const currentBtn = Array.from(document.querySelectorAll('.lang-btn')).find(btn => btn.getAttribute('onclick').includes("'" + lang + "'"));
+            if (currentBtn) currentBtn.classList.add('active');
         }
-        setLang('de');
+        
+        // Startet standardmäßig auf Deutsch
+        window.onload = function() {
+            switchLang('de');
+        };
     </script>
+
 </body>
 </html>
