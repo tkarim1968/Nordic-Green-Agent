@@ -257,13 +257,51 @@ footer {
 .footer-links a { color: rgba(245,240,232,0.5); text-decoration: none; font-size: 13px; transition: color 0.3s; }
 .footer-links a:hover { color: var(--gold); }
 
+/* ── WHATSAPP FLOAT ── */
+.whatsapp-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  background: #25d366; color: white;
+  width: 60px; height: 60px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  transition: all 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.7); }
+.whatsapp-tooltip {
+  position: fixed; bottom: 36px; right: 100px; z-index: 999;
+  background: var(--forest); color: var(--cream);
+  padding: 8px 16px; border-radius: 8px; font-size: 13px;
+  white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.whatsapp-float:hover + .whatsapp-tooltip { opacity: 1; }
+
+/* ── VALUE PROPOSITION ── */
+.value-wrap { background: var(--forest); padding: 80px 60px; }
+.value-inner { max-width: 1200px; margin: 0 auto; }
+.value-inner .section-title { color: var(--cream); margin-bottom: 48px; }
+.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.value-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 40px 32px; transition: all 0.3s;
+}
+.value-item:hover { background: rgba(255,255,255,0.08); border-color: var(--gold); }
+.value-item:first-child { border-radius: 12px 0 0 12px; }
+.value-item:last-child { border-radius: 0 12px 12px 0; }
+.value-num { font-family: 'Playfair Display', serif; font-size: 52px; color: var(--gold); opacity: 0.3; line-height: 1; margin-bottom: 16px; }
+.value-title { font-size: 18px; font-weight: 600; color: var(--cream); margin-bottom: 12px; }
+.value-desc { font-size: 14px; color: rgba(245,240,232,0.6); line-height: 1.8; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .hero-content, .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-badges { flex-direction: row; overflow-x: auto; }
   .badge-card { min-width: 240px; }
   .about-photo-wrap { max-width: 300px; }
-  .services-grid, .quality-grid { grid-template-columns: 1fr; }
+  .services-grid, .quality-grid, .value-grid { grid-template-columns: 1fr; }
+  .value-item:first-child, .value-item:last-child { border-radius: 12px; }
+  .value-wrap { padding: 60px 24px; }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .process-step { grid-template-columns: 40px 28px 1fr; gap: 0 12px; }
   .section, .about-wrap, .portfolio-wrap, .contact-wrap, .impressum-wrap { padding: 60px 24px; }
@@ -336,6 +374,71 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- VALUE PROPOSITION -->
+<div class="value-wrap">
+  <div class="value-inner">
+    <p class="section-label" style="color:var(--mint)">
+      <span data-lang="de" class="active">Warum Nordic Green Agent?</span>
+      <span data-lang="en">Why Nordic Green Agent?</span>
+      <span data-lang="fr">Pourquoi Nordic Green Agent ?</span>
+      <span data-lang="ar">لماذا Nordic Green Agent؟</span>
+    </p>
+    <h2 class="section-title">
+      <span data-lang="de" class="active">Ihr <em>Vorteil</em> – unser Versprechen</span>
+      <span data-lang="en">Your <em>advantage</em> – our promise</span>
+      <span data-lang="fr">Votre <em>avantage</em> – notre promesse</span>
+      <span data-lang="ar"><em>ميزتك</em> – وعدنا لك</span>
+    </h2>
+    <div class="value-grid">
+      <div class="value-item">
+        <div class="value-num">01</div>
+        <h3 class="value-title">
+          <span data-lang="de" class="active">Lokale Expertise, die zählt</span>
+          <span data-lang="en">Local expertise that counts</span>
+          <span data-lang="fr">Expertise locale qui compte</span>
+          <span data-lang="ar">خبرة محلية تُحدث الفارق</span>
+        </h3>
+        <p class="value-desc">
+          <span data-lang="de" class="active">Als ansässiger Agent in Mainz spreche ich täglich mit deutschen Händlern und Einkäufern – ich kenne ihre Sprache, ihre Anforderungen und ihre Entscheidungswege.</span>
+          <span data-lang="en">As a resident agent in Mainz, I speak daily with German retailers and buyers – I know their language, requirements, and decision-making processes.</span>
+          <span data-lang="fr">En tant qu'agent basé à Mayence, je parle quotidiennement avec des commerçants et acheteurs allemands – je connais leur langue, leurs exigences et leurs processus de décision.</span>
+          <span data-lang="ar">بصفتي وكيلاً مقيماً في ماينتس، أتحدث يومياً مع تجار التجزئة والمشترين الألمان – أعرف لغتهم ومتطلباتهم وطرق اتخاذ قراراتهم.</span>
+        </p>
+      </div>
+      <div class="value-item">
+        <div class="value-num">02</div>
+        <h3 class="value-title">
+          <span data-lang="de" class="active">Exklusiver Fokus auf Ihre Marke</span>
+          <span data-lang="en">Exclusive focus on your brand</span>
+          <span data-lang="fr">Focus exclusif sur votre marque</span>
+          <span data-lang="ar">تركيز حصري على علامتك التجارية</span>
+        </h3>
+        <p class="value-desc">
+          <span data-lang="de" class="active">Ich vertrete keine konkurrierenden Marken in derselben Kategorie. Ihre Marke ist meine Priorität – nicht eine unter vielen.</span>
+          <span data-lang="en">I do not represent competing brands in the same category. Your brand is my priority – not one among many.</span>
+          <span data-lang="fr">Je ne représente pas de marques concurrentes dans la même catégorie. Votre marque est ma priorité – pas une parmi d'autres.</span>
+          <span data-lang="ar">لا أمثل علامات تجارية منافسة في نفس الفئة. علامتك التجارية هي أولويتي – وليست واحدة من بين الكثيرين.</span>
+        </p>
+      </div>
+      <div class="value-item">
+        <div class="value-num">03</div>
+        <h3 class="value-title">
+          <span data-lang="de" class="active">Ergebnisorientiert & transparent</span>
+          <span data-lang="en">Result-oriented & transparent</span>
+          <span data-lang="fr">Orienté résultats & transparent</span>
+          <span data-lang="ar">موجّه نحو النتائج وشفاف</span>
+        </h3>
+        <p class="value-desc">
+          <span data-lang="de" class="active">Keine versteckten Kosten, keine leeren Versprechen. Sie erhalten regelmäßige Berichte über Fortschritte, Kontakte und Ergebnisse.</span>
+          <span data-lang="en">No hidden costs, no empty promises. You receive regular reports on progress, contacts, and results.</span>
+          <span data-lang="fr">Pas de coûts cachés, pas de promesses vides. Vous recevez des rapports réguliers sur les progrès, les contacts et les résultats.</span>
+          <span data-lang="ar">لا تكاليف خفية، لا وعود فارغة. تحصل على تقارير منتظمة حول التقدم والاتصالات والنتائج.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <div class="about-wrap">
@@ -610,6 +713,15 @@ footer {
       <p>Karim Taleb (Anschrift wie oben)</p>
     </div>
   </div>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/4917677545933" target="_blank" class="whatsapp-float" title="WhatsApp">💬</a>
+<div class="whatsapp-tooltip">
+  <span data-lang="de" class="active">Direkt auf WhatsApp schreiben</span>
+  <span data-lang="en">Chat on WhatsApp</span>
+  <span data-lang="fr">Écrire sur WhatsApp</span>
+  <span data-lang="ar">تواصل عبر واتساب</span>
 </div>
 
 <!-- FOOTER (einmal) -->
