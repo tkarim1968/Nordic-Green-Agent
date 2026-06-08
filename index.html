@@ -6,598 +6,286 @@
 <title>Nordic Green Agent | Markteintritt & Vertrieb</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --forest: #1a3a2a;
-    --moss: #2d5a3d;
-    --sage: #6a9b7e;
-    --mint: #a8d5b5;
-    --cream: #f5f0e8;
-    --sand: #e8dfc8;
-    --gold: #c8a96e;
-    --text: #1a2820;
-    --light: #f9f6f0;
-  }
+/* ── VARIABLES ── */
+:root {
+  --forest: #1a3a2a;
+  --moss: #2d5a3d;
+  --sage: #6a9b7e;
+  --mint: #a8d5b5;
+  --cream: #f5f0e8;
+  --sand: #e8dfc8;
+  --gold: #c8a96e;
+  --text: #1a2820;
+  --light: #f9f6f0;
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── RESET ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--text); overflow-x: hidden; }
 
-  html { scroll-behavior: smooth; }
+/* ── LANGUAGE ── */
+[data-lang] { display: none; }
+[data-lang].active { display: block; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--light);
-    color: var(--text);
-    overflow-x: hidden;
-  }
+.lang-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--forest);
+  display: flex; justify-content: flex-end; align-items: center;
+  padding: 10px 40px; gap: 8px;
+}
+.lang-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.7);
+  padding: 4px 14px; border-radius: 20px;
+  font-family: 'DM Sans', sans-serif; font-size: 13px;
+  cursor: pointer; transition: all 0.3s; letter-spacing: 0.5px;
+}
+.lang-btn:hover, .lang-btn.active {
+  background: var(--gold); border-color: var(--gold);
+  color: var(--forest); font-weight: 500;
+}
 
-  /* ── LANGUAGE SWITCHER ── */
-  .lang-bar {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: var(--forest);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px 40px;
-    gap: 8px;
-  }
-  .lang-btn {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: rgba(255,255,255,0.7);
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.3s;
-    letter-spacing: 0.5px;
-  }
-  .lang-btn:hover, .lang-btn.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--forest);
-    font-weight: 500;
-  }
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; background: var(--forest);
+  display: flex; align-items: center;
+  padding: 120px 60px 80px; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(106,155,126,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-content {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: center; position: relative; z-index: 1;
+}
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 5vw, 72px);
+  color: var(--cream); line-height: 1.1; margin-bottom: 8px;
+}
+.hero-text h1 em { color: var(--gold); font-style: italic; }
+.hero-subtitle {
+  font-size: 16px; color: var(--mint);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 28px; font-weight: 300;
+}
+.hero-desc {
+  font-size: 17px; color: rgba(245,240,232,0.75);
+  line-height: 1.8; max-width: 480px; margin-bottom: 48px;
+}
+.hero-cta {
+  display: inline-block; background: var(--gold); color: var(--forest);
+  padding: 16px 40px; border-radius: 4px; text-decoration: none;
+  font-weight: 500; font-size: 15px; letter-spacing: 0.5px; transition: all 0.3s;
+}
+.hero-cta:hover { background: var(--cream); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+.hero-badges { display: flex; flex-direction: column; gap: 20px; }
+.badge-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 24px 28px;
+  backdrop-filter: blur(10px); transition: all 0.3s;
+}
+.badge-card:hover { background: rgba(255,255,255,0.08); border-color: var(--gold); transform: translateX(8px); }
+.badge-card .icon { font-size: 28px; margin-bottom: 10px; display: block; }
+.badge-card h3 { color: var(--cream); font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+.badge-card p { color: rgba(245,240,232,0.6); font-size: 14px; line-height: 1.6; }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    background: var(--forest);
-    display: flex;
-    align-items: center;
-    padding: 120px 60px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(106,155,126,0.2) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -50px; left: 20%;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(200,169,110,0.1) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-  .hero-text h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(42px, 5vw, 72px);
-    color: var(--cream);
-    line-height: 1.1;
-    margin-bottom: 8px;
-  }
-  .hero-text h1 em {
-    color: var(--gold);
-    font-style: italic;
-  }
-  .hero-subtitle {
-    font-size: 16px;
-    color: var(--mint);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 28px;
-    font-weight: 300;
-  }
-  .hero-desc {
-    font-size: 17px;
-    color: rgba(245,240,232,0.75);
-    line-height: 1.8;
-    max-width: 480px;
-    margin-bottom: 48px;
-  }
-  .hero-cta {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--forest);
-    padding: 16px 40px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    transition: all 0.3s;
-  }
-  .hero-cta:hover {
-    background: var(--cream);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-  }
-  .hero-badges {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .badge-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 24px 28px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s;
-  }
-  .badge-card:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: var(--gold);
-    transform: translateX(8px);
-  }
-  .badge-card .icon { font-size: 28px; margin-bottom: 10px; display: block; }
-  .badge-card h3 { color: var(--cream); font-size: 16px; font-weight: 500; margin-bottom: 6px; }
-  .badge-card p { color: rgba(245,240,232,0.6); font-size: 14px; line-height: 1.6; }
+/* ── SECTIONS ── */
+.section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--sage); font-weight: 500; margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  color: var(--forest); line-height: 1.2; margin-bottom: 20px;
+}
+.section-title em { color: var(--sage); font-style: italic; }
+.section-desc {
+  font-size: 17px; color: #4a6355; line-height: 1.8;
+  max-width: 580px; margin-bottom: 60px;
+}
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--mint), transparent);
+  margin: 0 60px;
+}
 
-  /* ── SECTION BASE ── */
-  .section {
-    padding: 100px 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .section-label {
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--sage);
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    color: var(--forest);
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-  .section-title em { color: var(--sage); font-style: italic; }
-  .section-desc {
-    font-size: 17px;
-    color: #4a6355;
-    line-height: 1.8;
-    max-width: 580px;
-    margin-bottom: 60px;
-  }
+/* ── ABOUT ── */
+.about-wrap { background: var(--cream); padding: 100px 60px; }
+.about-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 340px 1fr; gap: 80px; align-items: start;
+}
+.about-photo-wrap { position: relative; }
+.about-photo {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover;
+  border-radius: 8px; display: block;
+}
+.about-frame {
+  position: absolute; top: -16px; left: -16px; right: 16px; bottom: 16px;
+  border: 2px solid var(--gold); border-radius: 8px; z-index: -1;
+}
+.about-name { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--forest); margin-bottom: 6px; }
+.about-role { color: var(--sage); font-size: 15px; font-weight: 300; letter-spacing: 1px; margin-bottom: 24px; }
+.about-bio { font-size: 16px; color: #3a5545; line-height: 1.9; margin-bottom: 32px; }
+.about-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.fact { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #4a6355; }
+.fact::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
 
-  /* ── ABOUT ── */
-  .about-wrap {
-    background: var(--cream);
-    padding: 100px 60px;
-  }
-  .about-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .about-photo-wrap {
-    position: relative;
-  }
-  .about-photo {
-    width: 100%;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-  }
-  .about-photo-placeholder {
-    width: 100%;
-    aspect-ratio: 4/5;
-    background: linear-gradient(145deg, var(--moss), var(--forest));
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 80px;
-  }
-  .about-frame {
-    position: absolute;
-    top: -16px; left: -16px; right: 16px; bottom: 16px;
-    border: 2px solid var(--gold);
-    border-radius: 8px;
-    z-index: -1;
-  }
-  .about-text .section-label { margin-top: 8px; }
-  .about-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: var(--forest);
-    margin-bottom: 6px;
-  }
-  .about-role {
-    color: var(--sage);
-    font-size: 15px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin-bottom: 24px;
-  }
-  .about-bio {
-    font-size: 16px;
-    color: #3a5545;
-    line-height: 1.9;
-    margin-bottom: 32px;
-  }
-  .about-facts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .fact {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    color: #4a6355;
-  }
-  .fact::before {
-    content: '✓';
-    color: var(--gold);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+/* ── QUALITY ── */
+.quality-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 20px; }
+.quality-card {
+  background: white; border: 1px solid rgba(106,155,126,0.2);
+  border-radius: 12px; padding: 40px 32px; transition: all 0.3s;
+}
+.quality-card:hover { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(26,58,42,0.1); border-color: var(--sage); }
+.quality-icon { font-size: 36px; margin-bottom: 20px; }
+.quality-title { font-size: 18px; font-weight: 600; color: var(--forest); margin-bottom: 14px; }
+.quality-desc { font-size: 14px; color: #4a6355; line-height: 1.9; margin-bottom: 24px; }
+.quality-cta {
+  display: inline-block; background: var(--forest); color: var(--cream);
+  padding: 10px 24px; border-radius: 4px; text-decoration: none;
+  font-size: 13px; font-weight: 500; transition: all 0.3s;
+}
+.quality-cta:hover { background: var(--moss); transform: translateY(-2px); }
 
-  /* ── SERVICES ── */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 60px;
-  }
-  .service-card {
-    background: white;
-    border: 1px solid rgba(106,155,126,0.2);
-    border-radius: 12px;
-    padding: 40px 32px;
-    transition: all 0.4s;
-    position: relative;
-    overflow: hidden;
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--sage), var(--gold));
-    transform: scaleX(0);
-    transition: transform 0.4s;
-  }
-  .service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(26,58,42,0.12);
-    border-color: var(--sage);
-  }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    color: var(--mint);
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 16px;
-  }
-  .service-title {
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--forest);
-    margin-bottom: 16px;
-  }
-  .service-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .service-list li {
-    font-size: 14px;
-    color: #4a6355;
-    padding-left: 18px;
-    position: relative;
-    line-height: 1.5;
-  }
-  .service-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-size: 12px;
-  }
+/* ── SERVICES ── */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 60px; }
+.service-card {
+  background: white; border: 1px solid rgba(106,155,126,0.2);
+  border-radius: 12px; padding: 40px 32px; transition: all 0.4s; position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--sage), var(--gold));
+  transform: scaleX(0); transition: transform 0.4s;
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,58,42,0.12); border-color: var(--sage); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-num { font-family: 'Playfair Display', serif; font-size: 48px; color: var(--mint); font-weight: 700; line-height: 1; margin-bottom: 16px; }
+.service-title { font-size: 20px; font-weight: 500; color: var(--forest); margin-bottom: 16px; }
+.service-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.service-list li { font-size: 14px; color: #4a6355; padding-left: 18px; position: relative; line-height: 1.5; }
+.service-list li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 12px; }
 
-  /* ── PORTFOLIO ── */
-  .portfolio-wrap {
-    background: var(--forest);
-    padding: 100px 60px;
-  }
-  .portfolio-inner { max-width: 1200px; margin: 0 auto; }
-  .portfolio-inner .section-title { color: var(--cream); }
-  .portfolio-inner .section-desc { color: rgba(245,240,232,0.65); }
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-  .portfolio-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px;
-    padding: 28px 22px;
-    text-align: center;
-    transition: all 0.3s;
-  }
-  .portfolio-card:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: var(--gold);
-    transform: translateY(-4px);
-  }
-  .portfolio-card .emoji { font-size: 36px; margin-bottom: 14px; display: block; }
-  .portfolio-card h3 { color: var(--cream); font-size: 15px; font-weight: 500; margin-bottom: 8px; }
-  .portfolio-card p { color: rgba(245,240,232,0.55); font-size: 13px; line-height: 1.6; }
+/* ── PORTFOLIO ── */
+.portfolio-wrap { background: var(--forest); padding: 100px 60px; }
+.portfolio-inner { max-width: 1200px; margin: 0 auto; }
+.portfolio-inner .section-title { color: var(--cream); }
+.portfolio-inner .section-desc { color: rgba(245,240,232,0.65); }
+.portfolio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.product-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px; overflow: hidden; transition: all 0.3s;
+}
+.product-card:hover { background: rgba(255,255,255,0.1); border-color: var(--gold); transform: translateY(-4px); }
+.product-img-wrap {
+  width: 100%; height: 200px;
+  background: white; display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.product-img { width: 100%; height: 100%; object-fit: contain; padding: 16px; background: #f8f8f8; }
+.product-info { padding: 20px 22px 28px; }
+.product-info h3 { color: var(--cream); font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+.product-info p { color: rgba(245,240,232,0.55); font-size: 13px; line-height: 1.6; }
 
-  /* ── TRUST / REFERENCES ── */
-  .trust-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 60px;
-  }
-  .trust-card {
-    background: white;
-    border-radius: 12px;
-    padding: 36px 32px;
-    border: 1px solid rgba(106,155,126,0.15);
-    position: relative;
-  }
-  .trust-card::before {
-    content: '"';
-    font-family: 'Playfair Display', serif;
-    font-size: 80px;
-    color: var(--mint);
-    position: absolute;
-    top: 10px; left: 24px;
-    line-height: 1;
-  }
-  .trust-text {
-    font-size: 15px;
-    color: #3a5545;
-    line-height: 1.8;
-    margin-top: 30px;
-    margin-bottom: 24px;
-    font-style: italic;
-  }
-  .trust-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .trust-avatar {
-    width: 44px; height: 44px;
-    background: linear-gradient(135deg, var(--moss), var(--sage));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-  .trust-name { font-weight: 500; color: var(--forest); font-size: 14px; }
-  .trust-role { font-size: 13px; color: var(--sage); }
-  .trust-stars { color: var(--gold); font-size: 13px; margin-bottom: 4px; }
+/* ── PROCESS ── */
+.process-steps { display: flex; flex-direction: column; margin-top: 20px; }
+.process-step { display: grid; grid-template-columns: 60px 40px 1fr; gap: 0 24px; align-items: start; min-height: 120px; }
+.step-num { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 1px; padding-top: 6px; text-align: right; }
+.step-connector { display: flex; flex-direction: column; align-items: center; }
+.step-connector::before { content: ''; width: 14px; height: 14px; background: var(--forest); border: 3px solid var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+.step-connector::after { content: ''; width: 2px; flex: 1; background: linear-gradient(to bottom, var(--gold), var(--mint)); min-height: 80px; }
+.step-connector.last::after { background: transparent; }
+.step-content { padding-bottom: 40px; }
+.step-icon { font-size: 26px; margin-bottom: 10px; }
+.step-title { font-size: 20px; font-weight: 600; color: var(--forest); margin-bottom: 8px; }
+.step-desc { font-size: 15px; color: #4a6355; line-height: 1.75; max-width: 560px; }
 
-  /* ── CONTACT ── */
-  .contact-wrap {
-    background: var(--sand);
-    padding: 100px 60px;
-  }
-  .contact-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .contact-info h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(30px, 3.5vw, 46px);
-    color: var(--forest);
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-  .contact-info h2 em { color: var(--sage); font-style: italic; }
-  .contact-info p { font-size: 16px; color: #4a6355; line-height: 1.8; margin-bottom: 36px; }
-  .contact-detail {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-size: 15px;
-    color: var(--forest);
-    margin-bottom: 14px;
-    font-weight: 400;
-  }
-  .contact-detail .icon-box {
-    width: 40px; height: 40px;
-    background: var(--moss);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-  /* FORM */
-  .contact-form {
-    background: white;
-    border-radius: 16px;
-    padding: 48px 40px;
-    box-shadow: 0 4px 40px rgba(26,58,42,0.08);
-  }
-  .form-row { margin-bottom: 20px; }
-  .form-row label {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--forest);
-    margin-bottom: 8px;
-    letter-spacing: 0.3px;
-  }
-  .form-row input,
-  .form-row select,
-  .form-row textarea {
-    width: 100%;
-    padding: 14px 18px;
-    border: 1.5px solid rgba(106,155,126,0.3);
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    color: var(--text);
-    background: var(--light);
-    transition: border 0.3s;
-    outline: none;
-    -webkit-appearance: none;
-  }
-  .form-row input:focus,
-  .form-row select:focus,
-  .form-row textarea:focus {
-    border-color: var(--sage);
-    background: white;
-  }
-  .form-row textarea { resize: vertical; min-height: 120px; }
-  .form-submit {
-    width: 100%;
-    background: var(--forest);
-    color: var(--cream);
-    border: none;
-    padding: 16px;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    transition: all 0.3s;
-    margin-top: 8px;
-  }
-  .form-submit:hover {
-    background: var(--moss);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(26,58,42,0.25);
-  }
-  .form-success {
-    display: none;
-    text-align: center;
-    padding: 24px;
-    background: rgba(106,155,126,0.1);
-    border-radius: 10px;
-    color: var(--forest);
-    font-size: 15px;
-    margin-top: 16px;
-  }
+/* ── CONTACT ── */
+.contact-wrap { background: var(--sand); padding: 100px 60px; }
+.contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-info h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 46px); color: var(--forest); line-height: 1.2; margin-bottom: 20px; }
+.contact-info h2 em { color: var(--sage); font-style: italic; }
+.contact-info p { font-size: 16px; color: #4a6355; line-height: 1.8; margin-bottom: 36px; }
+.contact-detail { display: flex; align-items: center; gap: 14px; font-size: 15px; color: var(--forest); margin-bottom: 14px; }
+.contact-detail .icon-box { width: 40px; height: 40px; background: var(--moss); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.contact-form { background: white; border-radius: 16px; padding: 48px 40px; box-shadow: 0 4px 40px rgba(26,58,42,0.08); }
+.form-row { margin-bottom: 20px; }
+.form-row label { display: block; font-size: 13px; font-weight: 500; color: var(--forest); margin-bottom: 8px; }
+.form-row input, .form-row select, .form-row textarea {
+  width: 100%; padding: 14px 18px;
+  border: 1.5px solid rgba(106,155,126,0.3); border-radius: 8px;
+  font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--text);
+  background: var(--light); transition: border 0.3s; outline: none; -webkit-appearance: none;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--sage); background: white; }
+.form-row textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  width: 100%; background: var(--forest); color: var(--cream); border: none;
+  padding: 16px; border-radius: 8px; font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 500; cursor: pointer; letter-spacing: 0.5px;
+  transition: all 0.3s; margin-top: 8px;
+}
+.form-submit:hover { background: var(--moss); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(26,58,42,0.25); }
+.form-success { display: none; text-align: center; padding: 24px; background: rgba(106,155,126,0.1); border-radius: 10px; color: var(--forest); font-size: 15px; margin-top: 16px; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--text);
-    padding: 40px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .footer-brand {
-    font-family: 'Playfair Display', serif;
-    color: var(--cream);
-    font-size: 20px;
-  }
-  .footer-brand span { color: var(--gold); }
-  .footer-copy { color: rgba(245,240,232,0.4); font-size: 13px; }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { color: rgba(245,240,232,0.5); text-decoration: none; font-size: 13px; transition: color 0.3s; }
-  .footer-links a:hover { color: var(--gold); }
+/* ── IMPRESSUM ── */
+.impressum-wrap { background: var(--light); padding: 80px 60px; border-top: 1px solid rgba(106,155,126,0.2); }
+.impressum-inner { max-width: 700px; margin: 0 auto; }
+.impressum-inner p { font-size: 15px; color: #3a5545; line-height: 2; }
+.impressum-inner strong { color: var(--forest); }
+.impressum-block { margin-bottom: 28px; }
 
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--mint), transparent);
-    margin: 0 60px;
-  }
+/* ── FOOTER ── */
+footer {
+  background: var(--text); padding: 40px 60px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+}
+.footer-brand { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 20px; }
+.footer-brand span { color: var(--gold); }
+.footer-copy { color: rgba(245,240,232,0.4); font-size: 13px; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { color: rgba(245,240,232,0.5); text-decoration: none; font-size: 13px; transition: color 0.3s; }
+.footer-links a:hover { color: var(--gold); }
 
-  /* ── LANG CONTENT ── */
-  [data-lang] { display: none; }
-  [data-lang].active { display: block; }
-  [data-lang-inline] { display: none; }
-  [data-lang-inline].active { display: inline; }
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-content, .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-badges { flex-direction: row; overflow-x: auto; }
+  .badge-card { min-width: 240px; }
+  .about-photo-wrap { max-width: 300px; }
+  .services-grid, .quality-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-step { grid-template-columns: 40px 28px 1fr; gap: 0 12px; }
+  .section, .about-wrap, .portfolio-wrap, .contact-wrap, .impressum-wrap { padding: 60px 24px; }
+  .divider { margin: 0 24px; }
+  footer { padding: 30px 24px; flex-direction: column; text-align: center; }
+  .lang-bar { padding: 10px 20px; }
+}
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .hero-content { grid-template-columns: 1fr; gap: 40px; }
-    .hero-badges { flex-direction: row; overflow-x: auto; }
-    .badge-card { min-width: 240px; }
-    .about-inner { grid-template-columns: 1fr; }
-    .about-photo-wrap { max-width: 300px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-    .trust-grid { grid-template-columns: 1fr; }
-    .contact-inner { grid-template-columns: 1fr; }
-    .section, .about-wrap, .portfolio-wrap, .contact-wrap { padding: 60px 24px; }
-    footer { padding: 30px 24px; flex-direction: column; text-align: center; }
-    .lang-bar { padding: 10px 20px; }
-    .divider { margin: 0 24px; }
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-text { animation: fadeUp 0.8s ease both; }
-  .hero-badges { animation: fadeUp 0.8s ease 0.2s both; }
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.hero-text { animation: fadeUp 0.8s ease both; }
+.hero-badges { animation: fadeUp 0.8s ease 0.2s both; }
 </style>
 </head>
 <body>
 
 <!-- LANGUAGE BAR -->
 <div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('de')">🇩🇪 DE</button>
-  <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
-  <button class="lang-btn" onclick="setLang('fr')">🇫🇷 FR</button>
-  <button class="lang-btn" onclick="setLang('ar')">🇦🇪 AR</button>
+  <button class="lang-btn active" onclick="setLang('de',this)">🇩🇪 DE</button>
+  <button class="lang-btn" onclick="setLang('en',this)">🇬🇧 EN</button>
+  <button class="lang-btn" onclick="setLang('fr',this)">🇫🇷 FR</button>
+  <button class="lang-btn" onclick="setLang('ar',this)">🇦🇪 AR</button>
 </div>
 
 <!-- HERO -->
@@ -633,12 +321,12 @@
       <div class="badge-card">
         <span class="icon">🌿</span>
         <h3><span data-lang="de" class="active">DACH-Marktfokus</span><span data-lang="en">DACH Market Focus</span><span data-lang="fr">Focus Marché DACH</span><span data-lang="ar">تركيز على سوق DACH</span></h3>
-        <p><span data-lang="de" class="active">Tiefer Einblick in den deutschen, österreichischen und Schweizer Markt.</span><span data-lang="en">Deep insight into the German, Austrian, and Swiss market.</span><span data-lang="fr">Connaissance approfondie du marché allemand, autrichien et suisse.</span><span data-lang="ar">معرفة عميقة بالسوق الألماني والنمساوي والسويسري.</span></p>
+        <p><span data-lang="de" class="active">Tiefer Einblick in den deutschen, österreichischen und Schweizer Markt.</span><span data-lang="en">Deep insight into the German, Austrian, and Swiss market.</span><span data-lang="fr">Connaissance approfondie du marché DACH.</span><span data-lang="ar">معرفة عميقة بسوق DACH.</span></p>
       </div>
       <div class="badge-card">
         <span class="icon">🤝</span>
         <h3><span data-lang="de" class="active">Exklusives Netzwerk</span><span data-lang="en">Exclusive Network</span><span data-lang="fr">Réseau Exclusif</span><span data-lang="ar">شبكة حصرية</span></h3>
-        <p><span data-lang="de" class="active">Gewachsene Kontakte im Bio- und Facheinzelhandel.</span><span data-lang="en">Established contacts in organic and specialty retail.</span><span data-lang="fr">Contacts établis dans le commerce bio et spécialisé.</span><span data-lang="ar">علاقات راسخة في تجارة التجزئة العضوية والمتخصصة.</span></p>
+        <p><span data-lang="de" class="active">Gewachsene Kontakte im Bio- und Facheinzelhandel.</span><span data-lang="en">Established contacts in organic and specialty retail.</span><span data-lang="fr">Contacts établis dans le commerce bio et spécialisé.</span><span data-lang="ar">علاقات راسخة في تجارة التجزئة العضوية.</span></p>
       </div>
       <div class="badge-card">
         <span class="icon">📍</span>
@@ -688,8 +376,6 @@
 
 <div class="divider"></div>
 
-<div class="divider"></div>
-
 <!-- QUALITÄT & NACHHALTIGKEIT -->
 <section class="section">
   <p class="section-label">
@@ -707,108 +393,36 @@
   <div class="quality-grid">
     <div class="quality-card">
       <div class="quality-icon">🌱</div>
-      <h3 class="quality-title">
-        <span data-lang="de" class="active">100% biologisch abbaubar</span>
-        <span data-lang="en">100% Biodegradable</span>
-        <span data-lang="fr">100% Biodégradable</span>
-        <span data-lang="ar">قابل للتحلل البيولوجي 100%</span>
-      </h3>
-      <p class="quality-desc">
-        <span data-lang="de" class="active">Alle unsere Produkte sind vollständig biologisch abbaubar und weisen keinerlei Gefahren- oder Warnhinweise auf.</span>
-        <span data-lang="en">All our products are completely biodegradable and have no hazard or warning labels.</span>
-        <span data-lang="fr">Tous nos produits sont entièrement biodégradables et ne comportent aucune mention de danger ou d'avertissement.</span>
-        <span data-lang="ar">جميع منتجاتنا قابلة للتحلل البيولوجي بالكامل ولا تحمل أي تحذيرات أو مخاطر.</span>
-      </p>
+      <h3 class="quality-title"><span data-lang="de" class="active">100% biologisch abbaubar</span><span data-lang="en">100% Biodegradable</span><span data-lang="fr">100% Biodégradable</span><span data-lang="ar">قابل للتحلل البيولوجي 100%</span></h3>
+      <p class="quality-desc"><span data-lang="de" class="active">Alle unsere Produkte sind vollständig biologisch abbaubar und weisen keinerlei Gefahren- oder Warnhinweise auf.</span><span data-lang="en">All our products are completely biodegradable and have no hazard or warning labels.</span><span data-lang="fr">Tous nos produits sont entièrement biodégradables et ne comportent aucune mention de danger.</span><span data-lang="ar">جميع منتجاتنا قابلة للتحلل البيولوجي بالكامل ولا تحمل أي تحذيرات.</span></p>
+      <a href="#contact" class="quality-cta"><span data-lang="de" class="active">Beratung anfragen</span><span data-lang="en">Request consultation</span><span data-lang="fr">Demander conseil</span><span data-lang="ar">طلب استشارة</span></a>
     </div>
     <div class="quality-card">
       <div class="quality-icon">🔍</div>
-      <h3 class="quality-title">
-        <span data-lang="de" class="active">Transparenz & Ehrlichkeit</span>
-        <span data-lang="en">Transparency & Honesty</span>
-        <span data-lang="fr">Transparence & Honnêteté</span>
-        <span data-lang="ar">الشفافية والأمانة</span>
-      </h3>
-      <p class="quality-desc">
-        <span data-lang="de" class="active">In der Vergangenheit (2021–2023) waren wir ECOCERT-zertifiziert. Wir haben uns bewusst entschieden, diese Zertifizierung nicht fortzuführen, da wir die Kosten nicht auf unsere Kunden umlegen möchten.</span>
-        <span data-lang="en">In the past (2021–2023), we were ECOCERT certified. We deliberately decided not to continue this certification as we do not want to pass these costs on to our customers.</span>
-        <span data-lang="fr">Dans le passé (2021–2023), nous étions certifiés ECOCERT. Nous avons délibérément décidé de ne pas poursuivre cette certification, car nous ne voulons pas répercuter ces coûts sur nos clients.</span>
-        <span data-lang="ar">في الماضي (2021-2023)، كنا حاصلين على شهادة ECOCERT. قررنا بوعي عدم الاستمرار في هذه الشهادة لأننا لا نريد تحميل هذه التكاليف على عملائنا.</span>
-      </p>
+      <h3 class="quality-title"><span data-lang="de" class="active">Transparenz & Ehrlichkeit</span><span data-lang="en">Transparency & Honesty</span><span data-lang="fr">Transparence & Honnêteté</span><span data-lang="ar">الشفافية والأمانة</span></h3>
+      <p class="quality-desc"><span data-lang="de" class="active">In der Vergangenheit (2021–2023) waren wir ECOCERT-zertifiziert. Wir haben uns bewusst entschieden, diese Zertifizierung nicht fortzuführen, da wir die Kosten nicht auf unsere Kunden umlegen möchten.</span><span data-lang="en">In the past (2021–2023), we were ECOCERT certified. We deliberately decided not to continue this certification as we do not want to pass these costs on to our customers.</span><span data-lang="fr">Dans le passé (2021–2023), nous étions certifiés ECOCERT. Nous avons décidé de ne pas poursuivre cette certification pour ne pas en répercuter les coûts sur nos clients.</span><span data-lang="ar">في الماضي (2021-2023)، كنا حاصلين على شهادة ECOCERT. قررنا عدم الاستمرار فيها لأننا لا نريد تحميل هذه التكاليف على عملائنا.</span></p>
+      <a href="#contact" class="quality-cta"><span data-lang="de" class="active">Mehr erfahren</span><span data-lang="en">Learn more</span><span data-lang="fr">En savoir plus</span><span data-lang="ar">اعرف أكثر</span></a>
     </div>
     <div class="quality-card">
       <div class="quality-icon">♻️</div>
-      <h3 class="quality-title">
-        <span data-lang="de" class="active">Ökologische Verantwortung</span>
-        <span data-lang="en">Ecological Responsibility</span>
-        <span data-lang="fr">Responsabilité Écologique</span>
-        <span data-lang="ar">المسؤولية البيئية</span>
-      </h3>
-      <p class="quality-desc">
-        <span data-lang="de" class="active">Wir legen höchsten Wert auf die ökologische Verträglichkeit unserer Produkte – für eine nachhaltige Zukunft ohne Kompromisse bei der Qualität.</span>
-        <span data-lang="en">We place the highest value on the ecological compatibility of our products – for a sustainable future without compromising on quality.</span>
-        <span data-lang="fr">Nous accordons la plus haute importance à la compatibilité écologique de nos produits – pour un avenir durable sans compromis sur la qualité.</span>
-        <span data-lang="ar">نولي أهمية قصوى للتوافق البيئي لمنتجاتنا – من أجل مستقبل مستدام دون المساس بالجودة.</span>
-      </p>
+      <h3 class="quality-title"><span data-lang="de" class="active">Ökologische Verantwortung</span><span data-lang="en">Ecological Responsibility</span><span data-lang="fr">Responsabilité Écologique</span><span data-lang="ar">المسؤولية البيئية</span></h3>
+      <p class="quality-desc"><span data-lang="de" class="active">Wir legen höchsten Wert auf die ökologische Verträglichkeit unserer Produkte – für eine nachhaltige Zukunft ohne Kompromisse bei der Qualität.</span><span data-lang="en">We place the highest value on the ecological compatibility of our products – for a sustainable future without compromising on quality.</span><span data-lang="fr">Nous accordons la plus haute importance à la compatibilité écologique de nos produits – pour un avenir durable sans compromis sur la qualité.</span><span data-lang="ar">نولي أهمية قصوى للتوافق البيئي لمنتجاتنا – من أجل مستقبل مستدام دون المساس بالجودة.</span></p>
+      <a href="#contact" class="quality-cta"><span data-lang="de" class="active">Kontakt aufnehmen</span><span data-lang="en">Get in touch</span><span data-lang="fr">Nous contacter</span><span data-lang="ar">تواصل معنا</span></a>
     </div>
   </div>
 </section>
 
-<style>
-  .quality-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 20px;
-  }
-  .quality-card {
-    background: white;
-    border: 1px solid rgba(106,155,126,0.2);
-    border-radius: 12px;
-    padding: 36px 28px;
-    transition: all 0.3s;
-  }
-  .quality-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 50px rgba(26,58,42,0.1);
-    border-color: var(--sage);
-  }
-  .quality-icon { font-size: 36px; margin-bottom: 16px; }
-  .quality-title { font-size: 18px; font-weight: 600; color: var(--forest); margin-bottom: 14px; }
-  .quality-desc { font-size: 14px; color: #4a6355; line-height: 1.8; }
-  @media (max-width: 900px) {
-    .quality-grid { grid-template-columns: 1fr; }
-  }
-</style>
+<div class="divider"></div>
 
 <!-- SERVICES -->
 <section class="section">
-  <p class="section-label">
-    <span data-lang="de" class="active">Leistungen</span>
-    <span data-lang="en">Services</span>
-    <span data-lang="fr">Services</span>
-    <span data-lang="ar">الخدمات</span>
-  </p>
-  <h2 class="section-title">
-    <span data-lang="de" class="active">Was wir für Sie <em>tun</em></span>
-    <span data-lang="en">What we <em>do</em> for you</span>
-    <span data-lang="fr">Ce que nous <em>faisons</em></span>
-    <span data-lang="ar">ما <em>نقدمه</em> لكم</span>
-  </h2>
-  <p class="section-desc">
-    <span data-lang="de" class="active">Von der ersten Marktanalyse bis zur langfristigen Listung im Fachhandel – wir begleiten Sie bei jedem Schritt.</span>
-    <span data-lang="en">From the first market analysis to long-term retail placement – we guide you every step of the way.</span>
-    <span data-lang="fr">De la première analyse de marché au référencement durable – nous vous accompagnons à chaque étape.</span>
-    <span data-lang="ar">من أول تحليل للسوق حتى التواجد الدائم في التجزئة – نرافقكم في كل خطوة.</span>
-  </p>
+  <p class="section-label"><span data-lang="de" class="active">Leistungen</span><span data-lang="en">Services</span><span data-lang="fr">Services</span><span data-lang="ar">الخدمات</span></p>
+  <h2 class="section-title"><span data-lang="de" class="active">Was wir für Sie <em>tun</em></span><span data-lang="en">What we <em>do</em> for you</span><span data-lang="fr">Ce que nous <em>faisons</em></span><span data-lang="ar">ما <em>نقدمه</em> لكم</span></h2>
+  <p class="section-desc"><span data-lang="de" class="active">Von der ersten Marktanalyse bis zur langfristigen Listung im Fachhandel – wir begleiten Sie bei jedem Schritt.</span><span data-lang="en">From the first market analysis to long-term retail placement – we guide you every step of the way.</span><span data-lang="fr">De la première analyse de marché au référencement durable – nous vous accompagnons à chaque étape.</span><span data-lang="ar">من أول تحليل للسوق حتى التواجد الدائم في التجزئة – نرافقكم في كل خطوة.</span></p>
   <div class="services-grid">
     <div class="service-card">
       <div class="service-num">01</div>
-      <h3 class="service-title">
-        <span data-lang="de" class="active">Markteintritt</span>
-        <span data-lang="en">Market Entry</span>
-        <span data-lang="fr">Entrée sur le marché</span>
-        <span data-lang="ar">دخول السوق</span>
-      </h3>
+      <h3 class="service-title"><span data-lang="de" class="active">Markteintritt</span><span data-lang="en">Market Entry</span><span data-lang="fr">Entrée sur le marché</span><span data-lang="ar">دخول السوق</span></h3>
       <ul class="service-list">
         <li><span data-lang="de" class="active">Markt- & Wettbewerbsanalyse</span><span data-lang="en">Market & competitor analysis</span><span data-lang="fr">Analyse marché & concurrence</span><span data-lang="ar">تحليل السوق والمنافسين</span></li>
         <li><span data-lang="de" class="active">Positionierungsberatung</span><span data-lang="en">Positioning & strategy consulting</span><span data-lang="fr">Conseil en positionnement</span><span data-lang="ar">استشارات تحديد الموقع</span></li>
@@ -817,14 +431,9 @@
     </div>
     <div class="service-card">
       <div class="service-num">02</div>
-      <h3 class="service-title">
-        <span data-lang="de" class="active">Vertrieb & Handel</span>
-        <span data-lang="en">Sales & Retail</span>
-        <span data-lang="fr">Ventes & Commerce</span>
-        <span data-lang="ar">المبيعات والتجارة</span>
-      </h3>
+      <h3 class="service-title"><span data-lang="de" class="active">Vertrieb & Handel</span><span data-lang="en">Sales & Retail</span><span data-lang="fr">Ventes & Commerce</span><span data-lang="ar">المبيعات والتجارة</span></h3>
       <ul class="service-list">
-        <li><span data-lang="de" class="active">Bio- & Facheinzelhandel</span><span data-lang="en">Organic & specialty retail</span><span data-lang="fr">Commerce bio & spécialisé</span><span data-lang="ar">تجزئة الأغذية العضوية والمتخصصة</span></li>
+        <li><span data-lang="de" class="active">Bio- & Facheinzelhandel</span><span data-lang="en">Organic & specialty retail</span><span data-lang="fr">Commerce bio & spécialisé</span><span data-lang="ar">تجزئة الأغذية العضوية</span></li>
         <li><span data-lang="de" class="active">Ansprache von Distributoren</span><span data-lang="en">Distributor outreach</span><span data-lang="fr">Approche des distributeurs</span><span data-lang="ar">التواصل مع الموزعين</span></li>
         <li><span data-lang="de" class="active">Großhandelsplatzierungen</span><span data-lang="en">Wholesale placements</span><span data-lang="fr">Placements en gros</span><span data-lang="ar">التواجد في تجارة الجملة</span></li>
       </ul>
@@ -842,80 +451,43 @@
 </section>
 
 <div class="divider"></div>
+
+<!-- PORTFOLIO -->
 <div class="portfolio-wrap">
   <div class="portfolio-inner">
-    <p class="section-label" style="color:var(--mint)">
-      <span data-lang="de" class="active">Portfolio-Segmente</span>
-      <span data-lang="en">Portfolio Segments</span>
-      <span data-lang="fr">Secteurs du Portfolio</span>
-      <span data-lang="ar">فئات المنتجات</span>
-    </p>
-    <h2 class="section-title">
-      <span data-lang="de" class="active">Unsere <em>Schwerpunkte</em></span>
-      <span data-lang="en">Our <em>Focus Areas</em></span>
-      <span data-lang="fr">Nos <em>Domaines</em></span>
-      <span data-lang="ar"><em>مجالاتنا</em></span>
-    </h2>
-    <p class="section-desc">
-      <span data-lang="de" class="active">Wir vertreten Premium-Marken aus folgenden Kategorien:</span>
-      <span data-lang="en">We represent premium brands from the following categories:</span>
-      <span data-lang="fr">Nous représentons des marques haut de gamme dans les catégories suivantes :</span>
-      <span data-lang="ar">نمثل علامات تجارية متميزة في الفئات التالية:</span>
-    </p>
+    <p class="section-label" style="color:var(--mint)"><span data-lang="de" class="active">Portfolio-Segmente</span><span data-lang="en">Portfolio Segments</span><span data-lang="fr">Secteurs du Portfolio</span><span data-lang="ar">فئات المنتجات</span></p>
+    <h2 class="section-title"><span data-lang="de" class="active">Unsere <em>Schwerpunkte</em></span><span data-lang="en">Our <em>Focus Areas</em></span><span data-lang="fr">Nos <em>Domaines</em></span><span data-lang="ar"><em>مجالاتنا</em></span></h2>
+    <p class="section-desc"><span data-lang="de" class="active">Wir vertreten Premium-Marken aus folgenden Kategorien:</span><span data-lang="en">We represent premium brands from the following categories:</span><span data-lang="fr">Nous représentons des marques haut de gamme dans les catégories suivantes :</span><span data-lang="ar">نمثل علامات تجارية متميزة في الفئات التالية:</span></p>
     <div class="portfolio-grid">
-      <div class="portfolio-card product-card">
-        <div class="product-img-wrap">
-          <img src="Provence Puree.png" alt="Provence Pure" class="product-img">
+      <div class="product-card">
+        <div class="product-img-wrap"><img src="Provence Puree.png" alt="Provence Pure" class="product-img"></div>
+        <div class="product-info">
+          <h3><span data-lang="de" class="active">Provence Pure</span><span data-lang="en">Provence Pure</span><span data-lang="fr">Provence Pure</span><span data-lang="ar">بروفانس بيور</span></h3>
+          <p><span data-lang="de" class="active">Natürliche Flüssigseifen – Lavendel, Zitrone/Minze, Rose</span><span data-lang="en">Natural liquid soaps – Lavender, Lemon/Mint, Rose</span><span data-lang="fr">Savons liquides naturels – Lavande, Citron/Menthe, Rose</span><span data-lang="ar">صابون سائل طبيعي – لافندر، ليمون/نعناع، ورد</span></p>
         </div>
-        <h3><span data-lang="de" class="active">Provence Pure</span><span data-lang="en">Provence Pure</span><span data-lang="fr">Provence Pure</span><span data-lang="ar">بروفانس بيور</span></h3>
-        <p><span data-lang="de" class="active">Natürliche Flüssigseifen – Lavendel, Zitrone/Minze, Rose</span><span data-lang="en">Natural liquid soaps – Lavender, Lemon/Mint, Rose</span><span data-lang="fr">Savons liquides naturels – Lavande, Citron/Menthe, Rose</span><span data-lang="ar">صابون سائل طبيعي – لافندر، ليمون/نعناع، ورد</span></p>
       </div>
-      <div class="portfolio-card product-card">
-        <div class="product-img-wrap">
-          <img src="Handseife.png" alt="Handseife Orange" class="product-img">
+      <div class="product-card">
+        <div class="product-img-wrap"><img src="Handseife.png" alt="Handseife Orange" class="product-img"></div>
+        <div class="product-info">
+          <h3><span data-lang="de" class="active">Bio-Orange Handseife</span><span data-lang="en">Organic Orange Hand Soap</span><span data-lang="fr">Savon Main Orange Bio</span><span data-lang="ar">صابون يدين برتقال عضوي</span></h3>
+          <p><span data-lang="de" class="active">Savon de Marseille mit Bio-Orange – sanft & natürlich</span><span data-lang="en">Savon de Marseille with organic orange – gentle & natural</span><span data-lang="fr">Savon de Marseille à l'orange bio – doux & naturel</span><span data-lang="ar">صابون مرسيليا بالبرتقال العضوي – لطيف وطبيعي</span></p>
         </div>
-        <h3><span data-lang="de" class="active">Bio-Orange Handseife</span><span data-lang="en">Organic Orange Hand Soap</span><span data-lang="fr">Savon Main Orange Bio</span><span data-lang="ar">صابون يدين برتقال عضوي</span></h3>
-        <p><span data-lang="de" class="active">Savon de Marseille mit Bio-Orange – sanft & natürlich</span><span data-lang="en">Savon de Marseille with organic orange – gentle & natural</span><span data-lang="fr">Savon de Marseille à l'orange bio – doux & naturel</span><span data-lang="ar">صابون مرسيليا بالبرتقال العضوي – لطيف وطبيعي</span></p>
       </div>
-      <div class="portfolio-card product-card">
-        <div class="product-img-wrap">
-          <img src="Savon de Marseille.png" alt="Savon de Marseille" class="product-img">
+      <div class="product-card">
+        <div class="product-img-wrap"><img src="Savon de Marseille.png" alt="Savon de Marseille" class="product-img"></div>
+        <div class="product-info">
+          <h3><span data-lang="de" class="active">Savon de Marseille</span><span data-lang="en">Savon de Marseille</span><span data-lang="fr">Savon de Marseille</span><span data-lang="ar">صابون مرسيليا</span></h3>
+          <p><span data-lang="de" class="active">Bestseller – Savon Liquide de Marseille Lavande, 500ml</span><span data-lang="en">Bestseller – Savon Liquide de Marseille Lavande, 500ml</span><span data-lang="fr">Bestseller – Savon Liquide de Marseille Lavande, 500ml</span><span data-lang="ar">الأكثر مبيعاً – صابون مرسيليا لافندر، 500مل</span></p>
         </div>
-        <h3><span data-lang="de" class="active">Savon de Marseille</span><span data-lang="en">Savon de Marseille</span><span data-lang="fr">Savon de Marseille</span><span data-lang="ar">صابون مرسيليا</span></h3>
-        <p><span data-lang="de" class="active">Bestseller – Savon Liquide de Marseille Lavande, 500ml</span><span data-lang="en">Bestseller – Savon Liquide de Marseille Lavande, 500ml</span><span data-lang="fr">Bestseller – Savon Liquide de Marseille Lavande, 500ml</span><span data-lang="ar">الأكثر مبيعاً – صابون مرسيليا لافندر، 500مل</span></p>
       </div>
-      <div class="portfolio-card product-card">
-        <div class="product-img-wrap">
-          <img src="Buerste.png" alt="Bambus Produkte" class="product-img">
+      <div class="product-card">
+        <div class="product-img-wrap"><img src="Buerste.png" alt="Bambus Produkte" class="product-img"></div>
+        <div class="product-info">
+          <h3><span data-lang="de" class="active">Bambus-Haushaltswaren</span><span data-lang="en">Bamboo Household Goods</span><span data-lang="fr">Articles Ménagers Bambou</span><span data-lang="ar">أدوات منزلية من البامبو</span></h3>
+          <p><span data-lang="de" class="active">Waschbürste, Seifenschale & Luffa-Schwämme aus nachhaltigem Bambus</span><span data-lang="en">Washing brush, soap dish & loofah sponges from sustainable bamboo</span><span data-lang="fr">Brosse, porte-savon & éponges loofah en bambou durable</span><span data-lang="ar">فرشاة غسيل وطبق صابون وإسفنج لوفا من البامبو المستدام</span></p>
         </div>
-        <h3><span data-lang="de" class="active">Bambus-Haushaltswaren</span><span data-lang="en">Bamboo Household Goods</span><span data-lang="fr">Articles Ménagers Bambou</span><span data-lang="ar">أدوات منزلية من البامبو</span></h3>
-        <p><span data-lang="de" class="active">Waschbürste, Seifenschale & Luffa-Schwämme aus nachhaltigem Bambus</span><span data-lang="en">Washing brush, soap dish & loofah sponges from sustainable bamboo</span><span data-lang="fr">Brosse, porte-savon & éponges loofah en bambou durable</span><span data-lang="ar">فرشاة غسيل وطبق صابون وإسفنج لوفا من البامبو المستدام</span></p>
       </div>
     </div>
-
-    <style>
-      .product-card { padding: 0 0 24px 0; overflow: hidden; }
-      .product-img-wrap {
-        width: 100%;
-        height: 180px;
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px 10px 0 0;
-        overflow: hidden;
-        margin-bottom: 18px;
-      }
-      .product-img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        padding: 12px;
-        background: #f8f8f8;
-      }
-      .product-card h3 { padding: 0 22px; color: var(--cream); margin-bottom: 8px; }
-      .product-card p { padding: 0 22px; }
-    </style>
   </div>
 </div>
 
@@ -923,42 +495,17 @@
 
 <!-- HOW WE WORK -->
 <section class="section">
-  <p class="section-label">
-    <span data-lang="de" class="active">Unser Prozess</span>
-    <span data-lang="en">Our Process</span>
-    <span data-lang="fr">Notre Processus</span>
-    <span data-lang="ar">كيف نعمل</span>
-  </p>
-  <h2 class="section-title">
-    <span data-lang="de" class="active">Wie wir <em>gemeinsam</em> arbeiten</span>
-    <span data-lang="en">How we <em>work together</em></span>
-    <span data-lang="fr">Comment nous <em>travaillons ensemble</em></span>
-    <span data-lang="ar">كيف <em>نعمل معاً</em></span>
-  </h2>
-  <p class="section-desc">
-    <span data-lang="de" class="active">Ein klarer, strukturierter Prozess – von der ersten Kontaktaufnahme bis zur erfolgreichen Listung im deutschen Markt.</span>
-    <span data-lang="en">A clear, structured process – from first contact to successful listing in the German market.</span>
-    <span data-lang="fr">Un processus clair et structuré – du premier contact au référencement réussi sur le marché allemand.</span>
-    <span data-lang="ar">عملية واضحة ومنظمة – من أول تواصل حتى الإدراج الناجح في السوق الألماني.</span>
-  </p>
+  <p class="section-label"><span data-lang="de" class="active">Unser Prozess</span><span data-lang="en">Our Process</span><span data-lang="fr">Notre Processus</span><span data-lang="ar">كيف نعمل</span></p>
+  <h2 class="section-title"><span data-lang="de" class="active">Wie wir <em>gemeinsam</em> arbeiten</span><span data-lang="en">How we <em>work together</em></span><span data-lang="fr">Comment nous <em>travaillons ensemble</em></span><span data-lang="ar">كيف <em>نعمل معاً</em></span></h2>
+  <p class="section-desc"><span data-lang="de" class="active">Ein klarer, strukturierter Prozess – von der ersten Kontaktaufnahme bis zur erfolgreichen Listung.</span><span data-lang="en">A clear, structured process – from first contact to successful listing.</span><span data-lang="fr">Un processus clair et structuré – du premier contact au référencement réussi.</span><span data-lang="ar">عملية واضحة ومنظمة – من أول تواصل حتى الإدراج الناجح.</span></p>
   <div class="process-steps">
     <div class="process-step">
       <div class="step-num">01</div>
       <div class="step-connector"></div>
       <div class="step-content">
         <div class="step-icon">💬</div>
-        <h3 class="step-title">
-          <span data-lang="de" class="active">Erstgespräch</span>
-          <span data-lang="en">First Call</span>
-          <span data-lang="fr">Premier entretien</span>
-          <span data-lang="ar">أول لقاء</span>
-        </h3>
-        <p class="step-desc">
-          <span data-lang="de" class="active">Wir lernen Ihre Marke, Ihre Ziele und Ihre Produkte kennen – kostenlos und unverbindlich.</span>
-          <span data-lang="en">We get to know your brand, goals, and products – free and non-binding.</span>
-          <span data-lang="fr">Nous découvrons votre marque, vos objectifs et vos produits – gratuitement et sans engagement.</span>
-          <span data-lang="ar">نتعرف على علامتك التجارية وأهدافك ومنتجاتك – مجاناً وبدون التزام.</span>
-        </p>
+        <h3 class="step-title"><span data-lang="de" class="active">Erstgespräch</span><span data-lang="en">First Call</span><span data-lang="fr">Premier entretien</span><span data-lang="ar">أول لقاء</span></h3>
+        <p class="step-desc"><span data-lang="de" class="active">Wir lernen Ihre Marke, Ihre Ziele und Ihre Produkte kennen – kostenlos und unverbindlich.</span><span data-lang="en">We get to know your brand, goals, and products – free and non-binding.</span><span data-lang="fr">Nous découvrons votre marque, vos objectifs et vos produits – gratuitement et sans engagement.</span><span data-lang="ar">نتعرف على علامتك التجارية وأهدافك ومنتجاتك – مجاناً وبدون التزام.</span></p>
       </div>
     </div>
     <div class="process-step">
@@ -966,18 +513,8 @@
       <div class="step-connector"></div>
       <div class="step-content">
         <div class="step-icon">🔍</div>
-        <h3 class="step-title">
-          <span data-lang="de" class="active">Marktanalyse</span>
-          <span data-lang="en">Market Analysis</span>
-          <span data-lang="fr">Analyse de marché</span>
-          <span data-lang="ar">تحليل السوق</span>
-        </h3>
-        <p class="step-desc">
-          <span data-lang="de" class="active">Wir analysieren den Wettbewerb, die Zielgruppe und die besten Vertriebskanäle für Ihre Marke in Deutschland.</span>
-          <span data-lang="en">We analyse the competition, target audience, and best distribution channels for your brand in Germany.</span>
-          <span data-lang="fr">Nous analysons la concurrence, le public cible et les meilleurs canaux de distribution pour votre marque en Allemagne.</span>
-          <span data-lang="ar">نحلل المنافسة والجمهور المستهدف وأفضل قنوات التوزيع لعلامتك في ألمانيا.</span>
-        </p>
+        <h3 class="step-title"><span data-lang="de" class="active">Marktanalyse</span><span data-lang="en">Market Analysis</span><span data-lang="fr">Analyse de marché</span><span data-lang="ar">تحليل السوق</span></h3>
+        <p class="step-desc"><span data-lang="de" class="active">Wir analysieren den Wettbewerb, die Zielgruppe und die besten Vertriebskanäle für Ihre Marke.</span><span data-lang="en">We analyse the competition, target audience, and best distribution channels for your brand.</span><span data-lang="fr">Nous analysons la concurrence, le public cible et les meilleurs canaux de distribution.</span><span data-lang="ar">نحلل المنافسة والجمهور المستهدف وأفضل قنوات التوزيع لعلامتك.</span></p>
       </div>
     </div>
     <div class="process-step">
@@ -985,18 +522,8 @@
       <div class="step-connector"></div>
       <div class="step-content">
         <div class="step-icon">🤝</div>
-        <h3 class="step-title">
-          <span data-lang="de" class="active">Kontaktaufbau</span>
-          <span data-lang="en">Partner Outreach</span>
-          <span data-lang="fr">Prise de contact</span>
-          <span data-lang="ar">بناء الشراكات</span>
-        </h3>
-        <p class="step-desc">
-          <span data-lang="de" class="active">Wir sprechen gezielt Händler, Distributoren und Einkäufer im deutschen Bio- und Facheinzelhandel an.</span>
-          <span data-lang="en">We proactively approach retailers, distributors, and buyers in German organic and specialty retail.</span>
-          <span data-lang="fr">Nous approchons de manière ciblée les détaillants, distributeurs et acheteurs du commerce bio et spécialisé allemand.</span>
-          <span data-lang="ar">نتواصل بشكل مستهدف مع تجار التجزئة والموزعين والمشترين في قطاع التجزئة العضوية والمتخصصة الألمانية.</span>
-        </p>
+        <h3 class="step-title"><span data-lang="de" class="active">Kontaktaufbau</span><span data-lang="en">Partner Outreach</span><span data-lang="fr">Prise de contact</span><span data-lang="ar">بناء الشراكات</span></h3>
+        <p class="step-desc"><span data-lang="de" class="active">Wir sprechen gezielt Händler, Distributoren und Einkäufer im deutschen Bio- und Facheinzelhandel an.</span><span data-lang="en">We proactively approach retailers, distributors, and buyers in German organic and specialty retail.</span><span data-lang="fr">Nous approchons de manière ciblée les détaillants, distributeurs et acheteurs du commerce bio.</span><span data-lang="ar">نتواصل بشكل مستهدف مع تجار التجزئة والموزعين والمشترين في قطاع التجزئة الألمانية.</span></p>
       </div>
     </div>
     <div class="process-step">
@@ -1004,173 +531,41 @@
       <div class="step-connector last"></div>
       <div class="step-content">
         <div class="step-icon">🏆</div>
-        <h3 class="step-title">
-          <span data-lang="de" class="active">Listung & Wachstum</span>
-          <span data-lang="en">Listing & Growth</span>
-          <span data-lang="fr">Référencement & Croissance</span>
-          <span data-lang="ar">الإدراج والنمو</span>
-        </h3>
-        <p class="step-desc">
-          <span data-lang="de" class="active">Wir begleiten Sie bei Vertragsverhandlungen und sorgen für eine langfristige Platzierung im Markt.</span>
-          <span data-lang="en">We guide you through contract negotiations and ensure a long-term market placement.</span>
-          <span data-lang="fr">Nous vous accompagnons dans les négociations et assurons un placement durable sur le marché.</span>
-          <span data-lang="ar">نرافقك في مفاوضات العقود ونضمن تواجداً طويل الأمد في السوق.</span>
-        </p>
+        <h3 class="step-title"><span data-lang="de" class="active">Listung & Wachstum</span><span data-lang="en">Listing & Growth</span><span data-lang="fr">Référencement & Croissance</span><span data-lang="ar">الإدراج والنمو</span></h3>
+        <p class="step-desc"><span data-lang="de" class="active">Wir begleiten Sie bei Vertragsverhandlungen und sorgen für eine langfristige Platzierung im Markt.</span><span data-lang="en">We guide you through contract negotiations and ensure a long-term market placement.</span><span data-lang="fr">Nous vous accompagnons dans les négociations et assurons un placement durable sur le marché.</span><span data-lang="ar">نرافقك في مفاوضات العقود ونضمن تواجداً طويل الأمد في السوق.</span></p>
       </div>
     </div>
   </div>
 </section>
 
-<style>
-  .process-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 20px;
-  }
-  .process-step {
-    display: grid;
-    grid-template-columns: 60px 40px 1fr;
-    gap: 0 24px;
-    align-items: start;
-    min-height: 120px;
-  }
-  .step-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 1px;
-    padding-top: 6px;
-    text-align: right;
-  }
-  .step-connector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-  }
-  .step-connector::before {
-    content: '';
-    width: 14px; height: 14px;
-    background: var(--forest);
-    border: 3px solid var(--gold);
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
-  .step-connector::after {
-    content: '';
-    width: 2px;
-    flex: 1;
-    background: linear-gradient(to bottom, var(--gold), var(--mint));
-    min-height: 80px;
-  }
-  .step-connector.last::after {
-    background: transparent;
-  }
-  .step-content {
-    padding-bottom: 40px;
-  }
-  .step-icon {
-    font-size: 26px;
-    margin-bottom: 10px;
-  }
-  .step-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--forest);
-    margin-bottom: 8px;
-  }
-  .step-desc {
-    font-size: 15px;
-    color: #4a6355;
-    line-height: 1.75;
-    max-width: 560px;
-  }
-  @media (max-width: 600px) {
-    .process-step { grid-template-columns: 40px 28px 1fr; gap: 0 12px; }
-    .step-num { font-size: 11px; }
-  }
-</style>
-
 <!-- CONTACT -->
 <div class="contact-wrap" id="contact">
   <div class="contact-inner">
     <div class="contact-info">
-      <p class="section-label">
-        <span data-lang="de" class="active">Kontakt</span>
-        <span data-lang="en">Contact</span>
-        <span data-lang="fr">Contact</span>
-        <span data-lang="ar">تواصل</span>
-      </p>
-      <h2>
-        <span data-lang="de" class="active">Lassen Sie uns Ihren <em>Markteintritt</em> besprechen</span>
-        <span data-lang="en">Let's discuss your <em>market entry</em></span>
-        <span data-lang="fr">Parlons de votre <em>entrée sur le marché</em></span>
-        <span data-lang="ar">لنتحدث عن <em>دخولكم للسوق</em></span>
-      </h2>
-      <p>
-        <span data-lang="de" class="active">Egal ob Sie noch in der Planungsphase sind oder bereits konkrete Schritte gehen möchten – ich freue mich auf Ihre Nachricht.</span>
-        <span data-lang="en">Whether you're still in the planning stage or ready to take concrete steps – I look forward to your message.</span>
-        <span data-lang="fr">Que vous soyez encore en phase de planification ou prêt à passer à l'action – je suis impatient de vous lire.</span>
-        <span data-lang="ar">سواء كنت في مرحلة التخطيط أو مستعداً للخطوات الملموسة – أتطلع إلى رسالتك.</span>
-      </p>
-      <div class="contact-detail">
-        <div class="icon-box">📧</div>
-        <span>nordic.green.germany@web.de</span>
-      </div>
-      <div class="contact-detail">
-        <div class="icon-box">📞</div>
-        <span>+49 176 77545 933</span>
-      </div>
-      <div class="contact-detail">
-        <div class="icon-box">📍</div>
-        <span>Mainz, Deutschland</span>
-      </div>
+      <p class="section-label"><span data-lang="de" class="active">Kontakt</span><span data-lang="en">Contact</span><span data-lang="fr">Contact</span><span data-lang="ar">تواصل</span></p>
+      <h2><span data-lang="de" class="active">Lassen Sie uns Ihren <em>Markteintritt</em> besprechen</span><span data-lang="en">Let's discuss your <em>market entry</em></span><span data-lang="fr">Parlons de votre <em>entrée sur le marché</em></span><span data-lang="ar">لنتحدث عن <em>دخولكم للسوق</em></span></h2>
+      <p><span data-lang="de" class="active">Egal ob Sie noch in der Planungsphase sind oder bereits konkrete Schritte gehen möchten – ich freue mich auf Ihre Nachricht.</span><span data-lang="en">Whether you're still in the planning stage or ready to take concrete steps – I look forward to your message.</span><span data-lang="fr">Que vous soyez encore en phase de planification ou prêt à passer à l'action – je suis impatient de vous lire.</span><span data-lang="ar">سواء كنت في مرحلة التخطيط أو مستعداً للخطوات الملموسة – أتطلع إلى رسالتك.</span></p>
+      <div class="contact-detail"><div class="icon-box">📧</div><span>nordic.green.germany@web.de</span></div>
+      <div class="contact-detail"><div class="icon-box">📞</div><span>+49 176 77545 933</span></div>
+      <div class="contact-detail"><div class="icon-box">📍</div><span>Pankratius-Strasse 24a, 55118 Mainz</span></div>
     </div>
     <div class="contact-form">
       <div class="form-row">
-        <label>
-          <span data-lang="de" class="active">Name</span>
-          <span data-lang="en">Name</span>
-          <span data-lang="fr">Nom</span>
-          <span data-lang="ar">الاسم</span>
-        </label>
+        <label><span data-lang="de" class="active">Name</span><span data-lang="en">Name</span><span data-lang="fr">Nom</span><span data-lang="ar">الاسم</span></label>
         <input type="text" id="fname" placeholder="Ihr Name / Your name">
       </div>
       <div class="form-row">
-        <label>
-          <span data-lang="de" class="active">E-Mail</span>
-          <span data-lang="en">Email</span>
-          <span data-lang="fr">E-mail</span>
-          <span data-lang="ar">البريد الإلكتروني</span>
-        </label>
+        <label>E-Mail</label>
         <input type="email" id="femail" placeholder="ihre@email.com">
       </div>
       <div class="form-row">
-        <label>
-          <span data-lang="de" class="active">Unternehmen / Marke</span>
-          <span data-lang="en">Company / Brand</span>
-          <span data-lang="fr">Entreprise / Marque</span>
-          <span data-lang="ar">الشركة / العلامة التجارية</span>
-        </label>
+        <label><span data-lang="de" class="active">Unternehmen / Marke</span><span data-lang="en">Company / Brand</span><span data-lang="fr">Entreprise / Marque</span><span data-lang="ar">الشركة / العلامة التجارية</span></label>
         <input type="text" id="fcompany" placeholder="z.B. NordicPure AB">
       </div>
       <div class="form-row">
-        <label>
-          <span data-lang="de" class="active">Produktkategorie</span>
-          <span data-lang="en">Product Category</span>
-          <span data-lang="fr">Catégorie de produit</span>
-          <span data-lang="ar">فئة المنتج</span>
-        </label>
+        <label><span data-lang="de" class="active">Produktkategorie</span><span data-lang="en">Product Category</span><span data-lang="fr">Catégorie</span><span data-lang="ar">فئة المنتج</span></label>
         <select id="fcategory">
-          <option value="">
-            <span data-lang="de" class="active">Bitte wählen</span>
-            <span data-lang="en">Please select</span>
-            <span data-lang="fr">Veuillez choisir</span>
-            <span data-lang="ar">الرجاء الاختيار</span>
-          </option>
+          <option value="">– Bitte wählen / Please select –</option>
           <option value="food">🥦 Bio-Lebensmittel / Organic Food</option>
           <option value="cosmetics">🌸 Naturkosmetik / Natural Cosmetics</option>
           <option value="cleaning">🧴 Öko-Reiniger / Eco Cleaners</option>
@@ -1179,13 +574,8 @@
         </select>
       </div>
       <div class="form-row">
-        <label>
-          <span data-lang="de" class="active">Ihre Nachricht</span>
-          <span data-lang="en">Your Message</span>
-          <span data-lang="fr">Votre message</span>
-          <span data-lang="ar">رسالتك</span>
-        </label>
-        <textarea id="fmessage" placeholder="Erzählen Sie uns von Ihrer Marke und Ihren Zielen..."></textarea>
+        <label><span data-lang="de" class="active">Ihre Nachricht</span><span data-lang="en">Your Message</span><span data-lang="fr">Votre message</span><span data-lang="ar">رسالتك</span></label>
+        <textarea id="fmessage" placeholder="Erzählen Sie uns von Ihrer Marke..."></textarea>
       </div>
       <button class="form-submit" onclick="handleSubmit()">
         <span data-lang="de" class="active">Nachricht senden →</span>
@@ -1193,88 +583,65 @@
         <span data-lang="fr">Envoyer →</span>
         <span data-lang="ar">إرسال →</span>
       </button>
-      <div class="form-success" id="formSuccess">
-        ✅ <span data-lang="de" class="active">Vielen Dank! Wir melden uns bald bei Ihnen.</span>
-        <span data-lang="en">Thank you! We'll be in touch soon.</span>
-        <span data-lang="fr">Merci ! Nous vous contacterons bientôt.</span>
-        <span data-lang="ar">شكراً! سنتواصل معكم قريباً.</span>
-      </div>
+      <div class="form-success" id="formSuccess">✅ <span data-lang="de" class="active">Vielen Dank! Wir melden uns bald.</span><span data-lang="en">Thank you! We'll be in touch soon.</span><span data-lang="fr">Merci ! Nous vous contacterons bientôt.</span><span data-lang="ar">شكراً! سنتواصل معكم قريباً.</span></div>
     </div>
   </div>
 </div>
 
 <!-- IMPRESSUM -->
-<div id="impressum" style="background: var(--light); padding: 80px 60px; border-top: 1px solid rgba(106,155,126,0.2);">
-  <div style="max-width: 700px; margin: 0 auto;">
+<div class="impressum-wrap" id="impressum">
+  <div class="impressum-inner">
     <p class="section-label">Rechtliches</p>
-    <h2 class="section-title" style="font-size: 36px;">Impressum</h2>
-    <div style="font-size: 15px; color: #3a5545; line-height: 2; margin-top: 32px;">
-      <p style="margin-bottom: 6px;"><strong style="color: var(--forest);">Angaben gemäß § 5 TMG:</strong></p>
-      <p>Karim Taleb<br>
-      Nordic Green Agent<br>
-      Pankratius-Strasse 24a<br>
-      55118 Mainz<br>
-      Deutschland</p>
-
-      <p style="margin-top: 24px; margin-bottom: 6px;"><strong style="color: var(--forest);">Kontakt:</strong></p>
-      <p>Telefon: +49 176 77545 933<br>
-      E-Mail: <a href="mailto:nordic.green.germany@web.de" style="color: var(--sage); text-decoration: none;">nordic.green.germany@web.de</a></p>
-
-      <p style="margin-top: 24px; margin-bottom: 6px;"><strong style="color: var(--forest);">Umsatzsteuer-Identifikationsnummer:</strong></p>
+    <h2 class="section-title" style="font-size:36px;">Impressum</h2>
+    <div class="impressum-block" style="margin-top:32px;">
+      <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+      <p>Karim Taleb<br>Nordic Green Agent<br>Pankratius-Strasse 24a<br>55118 Mainz<br>Deutschland</p>
+    </div>
+    <div class="impressum-block">
+      <p><strong>Kontakt:</strong></p>
+      <p>Telefon: +49 176 77545 933<br>E-Mail: <a href="mailto:nordic.green.germany@web.de" style="color:var(--sage);text-decoration:none;">nordic.green.germany@web.de</a></p>
+    </div>
+    <div class="impressum-block">
+      <p><strong>Umsatzsteuer-Identifikationsnummer:</strong></p>
       <p>DE 443783347</p>
-
-      <p style="margin-top: 24px; margin-bottom: 6px;"><strong style="color: var(--forest);">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong></p>
-      <p>Karim Taleb<br>
-      (Anschrift wie oben)</p>
+    </div>
+    <div class="impressum-block">
+      <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong></p>
+      <p>Karim Taleb (Anschrift wie oben)</p>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- FOOTER (einmal) -->
 <footer>
   <div class="footer-brand">Nordic <span>Green</span> Agent</div>
   <div class="footer-copy">© 2026 Nordic Green Agent · Karim Taleb · Mainz, Deutschland</div>
   <div class="footer-links">
     <a href="mailto:nordic.green.germany@web.de">E-Mail</a>
     <a href="tel:004917677545933">Tel</a>
-    <a href="#">Impressum</a>
+    <a href="#impressum">Impressum</a>
   </div>
 </footer>
 
 <script>
-  let currentLang = 'de';
+function setLang(lang, btn) {
+  document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('[data-lang="' + lang + '"]').forEach(el => el.classList.add('active'));
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
+}
 
-  function setLang(lang) {
-    currentLang = lang;
-    // Update buttons
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    // Update block elements
-    document.querySelectorAll('[data-lang]').forEach(el => {
-      el.classList.toggle('active', el.dataset.lang === lang);
-    });
-    // RTL for Arabic
-    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  }
-
-  function handleSubmit() {
-    const name = document.getElementById('fname').value;
-    const email = document.getElementById('femail').value;
-    if (!name || !email) {
-      alert('Bitte Name und E-Mail ausfüllen.');
-      return;
-    }
-    const subject = encodeURIComponent('Anfrage: Markteintritt - ' + name);
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'E-Mail: ' + email + '\n' +
-      'Unternehmen: ' + document.getElementById('fcompany').value + '\n' +
-      'Kategorie: ' + document.getElementById('fcategory').value + '\n\n' +
-      'Nachricht:\n' + document.getElementById('fmessage').value
-    );
-    window.location.href = `mailto:nordic.green.germany@web.de?subject=${subject}&body=${body}`;
-    document.getElementById('formSuccess').style.display = 'block';
-  }
+function handleSubmit() {
+  var name = document.getElementById('fname').value;
+  var email = document.getElementById('femail').value;
+  if (!name || !email) { alert('Bitte Name und E-Mail ausfüllen.'); return; }
+  var subject = encodeURIComponent('Anfrage: Markteintritt - ' + name);
+  var body = encodeURIComponent('Name: ' + name + '\nE-Mail: ' + email + '\nUnternehmen: ' + document.getElementById('fcompany').value + '\nKategorie: ' + document.getElementById('fcategory').value + '\n\nNachricht:\n' + document.getElementById('fmessage').value);
+  window.location.href = 'mailto:nordic.green.germany@web.de?subject=' + subject + '&body=' + body;
+  document.getElementById('formSuccess').style.display = 'block';
+}
 </script>
 </body>
 </html>
