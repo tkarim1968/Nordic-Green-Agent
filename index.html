@@ -271,17 +271,6 @@
     flex-shrink: 0;
     margin-top: 2px;
   }
-<section id="about" style="padding: 60px 20px; background-color: #f9f7f2;">
-    <div style="max-width: 800px; margin: auto;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; color: #1a2820;">
-            Karim Taleb
-        </h2>
-        <p style="font-size: 18px; line-height: 1.6; color: #333;">
-            بصفتي مؤسس Nordic Green Agent، أرافق العلامات التجارية الاسكندنافية المستدامة في دخولها الحصري إلى السوق الألماني. 
-            أمهد الطريق لشراكات تجارية طويلة الأمد من خلال المعرفة العميقة بالسوق وشبكة العلاقات المتنامية في قطاع التجزئة العضوية.
-        </p>
-    </div>
-</section>
 
   /* ── SERVICES ── */
   .services-grid {
@@ -699,6 +688,98 @@
 
 <div class="divider"></div>
 
+<div class="divider"></div>
+
+<!-- QUALITÄT & NACHHALTIGKEIT -->
+<section class="section">
+  <p class="section-label">
+    <span data-lang="de" class="active">Unsere Werte</span>
+    <span data-lang="en">Our Values</span>
+    <span data-lang="fr">Nos Valeurs</span>
+    <span data-lang="ar">قيمنا</span>
+  </p>
+  <h2 class="section-title">
+    <span data-lang="de" class="active">Qualität & <em>Nachhaltigkeit</em></span>
+    <span data-lang="en">Quality & <em>Sustainability</em></span>
+    <span data-lang="fr">Qualité & <em>Durabilité</em></span>
+    <span data-lang="ar">الجودة <em>والاستدامة</em></span>
+  </h2>
+  <div class="quality-grid">
+    <div class="quality-card">
+      <div class="quality-icon">🌱</div>
+      <h3 class="quality-title">
+        <span data-lang="de" class="active">100% biologisch abbaubar</span>
+        <span data-lang="en">100% Biodegradable</span>
+        <span data-lang="fr">100% Biodégradable</span>
+        <span data-lang="ar">قابل للتحلل البيولوجي 100%</span>
+      </h3>
+      <p class="quality-desc">
+        <span data-lang="de" class="active">Alle unsere Produkte sind vollständig biologisch abbaubar und weisen keinerlei Gefahren- oder Warnhinweise auf.</span>
+        <span data-lang="en">All our products are completely biodegradable and have no hazard or warning labels.</span>
+        <span data-lang="fr">Tous nos produits sont entièrement biodégradables et ne comportent aucune mention de danger ou d'avertissement.</span>
+        <span data-lang="ar">جميع منتجاتنا قابلة للتحلل البيولوجي بالكامل ولا تحمل أي تحذيرات أو مخاطر.</span>
+      </p>
+    </div>
+    <div class="quality-card">
+      <div class="quality-icon">🔍</div>
+      <h3 class="quality-title">
+        <span data-lang="de" class="active">Transparenz & Ehrlichkeit</span>
+        <span data-lang="en">Transparency & Honesty</span>
+        <span data-lang="fr">Transparence & Honnêteté</span>
+        <span data-lang="ar">الشفافية والأمانة</span>
+      </h3>
+      <p class="quality-desc">
+        <span data-lang="de" class="active">In der Vergangenheit (2021–2023) waren wir ECOCERT-zertifiziert. Wir haben uns bewusst entschieden, diese Zertifizierung nicht fortzuführen, da wir die Kosten nicht auf unsere Kunden umlegen möchten.</span>
+        <span data-lang="en">In the past (2021–2023), we were ECOCERT certified. We deliberately decided not to continue this certification as we do not want to pass these costs on to our customers.</span>
+        <span data-lang="fr">Dans le passé (2021–2023), nous étions certifiés ECOCERT. Nous avons délibérément décidé de ne pas poursuivre cette certification, car nous ne voulons pas répercuter ces coûts sur nos clients.</span>
+        <span data-lang="ar">في الماضي (2021-2023)، كنا حاصلين على شهادة ECOCERT. قررنا بوعي عدم الاستمرار في هذه الشهادة لأننا لا نريد تحميل هذه التكاليف على عملائنا.</span>
+      </p>
+    </div>
+    <div class="quality-card">
+      <div class="quality-icon">♻️</div>
+      <h3 class="quality-title">
+        <span data-lang="de" class="active">Ökologische Verantwortung</span>
+        <span data-lang="en">Ecological Responsibility</span>
+        <span data-lang="fr">Responsabilité Écologique</span>
+        <span data-lang="ar">المسؤولية البيئية</span>
+      </h3>
+      <p class="quality-desc">
+        <span data-lang="de" class="active">Wir legen höchsten Wert auf die ökologische Verträglichkeit unserer Produkte – für eine nachhaltige Zukunft ohne Kompromisse bei der Qualität.</span>
+        <span data-lang="en">We place the highest value on the ecological compatibility of our products – for a sustainable future without compromising on quality.</span>
+        <span data-lang="fr">Nous accordons la plus haute importance à la compatibilité écologique de nos produits – pour un avenir durable sans compromis sur la qualité.</span>
+        <span data-lang="ar">نولي أهمية قصوى للتوافق البيئي لمنتجاتنا – من أجل مستقبل مستدام دون المساس بالجودة.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .quality-card {
+    background: white;
+    border: 1px solid rgba(106,155,126,0.2);
+    border-radius: 12px;
+    padding: 36px 28px;
+    transition: all 0.3s;
+  }
+  .quality-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(26,58,42,0.1);
+    border-color: var(--sage);
+  }
+  .quality-icon { font-size: 36px; margin-bottom: 16px; }
+  .quality-title { font-size: 18px; font-weight: 600; color: var(--forest); margin-bottom: 14px; }
+  .quality-desc { font-size: 14px; color: #4a6355; line-height: 1.8; }
+  @media (max-width: 900px) {
+    .quality-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
 <!-- SERVICES -->
 <section class="section">
   <p class="section-label">
@@ -761,8 +842,6 @@
 </section>
 
 <div class="divider"></div>
-
-<!-- PORTFOLIO SEGMENTS -->
 <div class="portfolio-wrap">
   <div class="portfolio-inner">
     <p class="section-label" style="color:var(--mint)">
@@ -1151,6 +1230,17 @@
   </div>
 </div>
 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Nordic <span>Green</span> Agent</div>
+  <div class="footer-copy">© 2026 Nordic Green Agent · Karim Taleb · Mainz, Deutschland</div>
+  <div class="footer-links">
+    <a href="mailto:nordic.green.germany@web.de">E-Mail</a>
+    <a href="tel:004917677545933">Tel</a>
+    <a href="#">Impressum</a>
+  </div>
+</footer>
+
 <script>
   let currentLang = 'de';
 
@@ -1188,91 +1278,3 @@
 </script>
 </body>
 </html>
-<div class="services-grid">
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <h3>Analyse</h3>
-      <p>Wir prüfen das Marktpotenzial Ihrer Marke in Deutschland.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <h3>Strategie</h3>
-      <p>Entwicklung der Markteintritts- und Vertriebsstrategie.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <h3>Umsetzung</h3>
-      <p>Aktive Akquise und Betreuung Ihrer Handelspartner.</p>
-    </div>
-</div>
-</section>
-
-<section id="contact" class="contact-wrap">
-  <div class="contact-inner">
-    <div class="contact-info">
-      <p class="section-label">Kontakt</p>
-      <h2>Lassen Sie uns <em>starten</em></h2>
-      <p>Haben Sie Fragen oder möchten Sie Ihr Produkt auf dem deutschen Markt platzieren? Ich freue mich auf Ihre Nachricht.</p>
-      <div class="contact-detail"><div class="icon-box">📧</div> nordic.green.germany@web.de</div>
-      <div class="contact-detail"><div class="icon-box">📱</div> +49 176 77545 933</div>
-    </div>
-    <form class="contact-form" onsubmit="event.preventDefault(); document.getElementById('success-msg').style.display='block'">
-      <div class="form-row"><label>Name</label><input type="text" required></div>
-      <div class="form-row"><label>E-Mail</label><input type="email" required></div>
-      <div class="form-row"><label>Nachricht</label><textarea required></textarea></div>
-      <button type="submit" class="form-submit">Nachricht senden</button>
-      <div id="success-msg" class="form-success">Vielen Dank! Ich melde mich in Kürze bei Ihnen.</div>
-    </form>
-  </div>
-</section>
-
-
-<script>
-function setLang(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.classList.add('active'));
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-}
-</script>
-</body>
-</html>
-<div id="impressum-modal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); padding:50px 20px; overflow-y:auto;">
-    <div style="background:#fff; max-width:700px; margin:auto; padding:40px; border-radius:12px; position:relative; color:#333; line-height:1.6;">
-        <span onclick="document.getElementById('impressum-modal').style.display='none'" style="position:absolute; top:15px; right:25px; font-size:30px; cursor:pointer; color:#1a3a2a;">&times;</span>
-        
-        <div id="legal-content">
-            <h2>Impressum</h2>
-            <p><strong>Angaben gemäß § 5 TMG:</strong><br>
-            Karim Taleb<br>Nordic Green Agent<br>Pankratius-Strasse 24a<br>55118 Mainz<br>Deutschland</p>
-            
-            <p><strong>Kontakt:</strong><br>
-            Telefon: +49 176 77545 933<br>
-            E-Mail: nordic.green.germany@web.de</p>
-            
-            <p><strong>Umsatzsteuer-Identifikationsnummer:</strong><br>
-            DE 443783347</p>
-            
-            <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
-            Karim Taleb (Anschrift wie oben)</p>
-            
-            <hr style="margin:25px 0; border:0; border-top:1px solid #ccc;">
-            
-            <h2>Datenschutzerklärung</h2>
-            <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
-            <p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (z.B. Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</p>
-        </div>
-    </div>
-</div>
-<footer style="background: #1a2820; padding: 20px 60px; color: rgba(245,240,232,0.6); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1);">
-    
-    <div style="font-size: 16px; color: #f5f0e8;">Nordic<span style="color: #c8a96e;">Green</span>Agent</div>
-
-    <div style="font-size: 12px; color: rgba(245,240,232,0.5);">© 2026 Nordic Green Agent · Karim Taleb · Mainz, Deutschland</div>
-
-    <div style="display: flex; gap: 20px; font-size: 14px;">
-        <a href="mailto:nordic.green.germany@web.de" style="color: rgba(245,240,232,0.6); text-decoration: none;">E-Mail</a>
-        <a href="tel:+4917677545933" style="color: rgba(245,240,232,0.6); text-decoration: none;">Tel</a>
-        <a href="javascript:void(0)" onclick="document.getElementById('impressum-modal').style.display='block'" style="color: rgba(245,240,232,0.6); text-decoration: none;">Impressum</a>
-    </div>
-</footer>
